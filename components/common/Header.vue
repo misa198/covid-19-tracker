@@ -20,6 +20,7 @@
       :color="
         darkMode ? theme.dark.headerBackground : theme.light.headerBackground
       "
+      :mini-variant="mini"
       fixed
       app
     >
@@ -49,6 +50,7 @@ import { theme } from '@/themes';
 export default Vue.extend({
   data() {
     return {
+      mini: false,
       drawer: false,
       items: [
         {
@@ -82,10 +84,28 @@ export default Vue.extend({
     theme() {
       return theme;
     },
+    xs() {
+      return (this as any).$vuetify.breakpoint.xs;
+    },
+  },
+  watch: {
+    xs() {
+      if (this.xs) {
+        this.drawer = false;
+        this.mini = false;
+      } else {
+        this.drawer = true;
+        this.mini = true;
+      }
+    },
   },
   methods: {
     toggleDrawer() {
-      this.drawer = !this.drawer;
+      if (this.xs) {
+        this.drawer = !this.drawer;
+      } else {
+        this.mini = !this.mini;
+      }
     },
     changeThemes() {
       this.$store.commit('common/changeTheme');
