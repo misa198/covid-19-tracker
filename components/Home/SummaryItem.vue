@@ -9,7 +9,7 @@
     />
     <div
       class="text-h4 font-weight-black text-center"
-      :style="{ color: color }"
+      :style="{ color: showDailyValue || !darkMode ? color : '#e5e7eb' }"
       v-text="formatNumberMethod(totalValue)"
     />
 
@@ -51,6 +51,11 @@ export default Vue.extend({
     showDailyValue: {
       type: Boolean,
       default: false,
+    },
+  },
+  computed: {
+    darkMode() {
+      return this.$store.state.common.darkMode;
     },
   },
   methods: {
