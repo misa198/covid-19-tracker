@@ -1,5 +1,6 @@
 export const theme = {
   default: {
+    primary: 'red',
     warning: '#FB8C00',
     warningSecondary: '#FFF9C4',
     success: '#00C853',
@@ -10,13 +11,13 @@ export const theme = {
     infoSecondary: '#CFD8DC',
   },
   light: {
-    text: "#000",
+    text: '#000',
     background: '#f9fafb',
     secondaryBackground: '#f3f4f6',
     headerBackground: '#fff',
   },
   dark: {
-    text: "#fff",
+    text: '#fff',
     background: '#111827',
     secondaryBackground: '#374151',
     headerBackground: '#1f2937',
