@@ -10,30 +10,15 @@
       max-width="750px"
       rounded
       elevation="2"
-      :color="
-        darkMode ? theme.dark.headerBackground : theme.light.headerBackground
-      "
+      color="headerBackground"
     >
       <div class="mb-4 text-h1 font-weight-bold text-center">404</div>
       <div class="text-h5 mb-8">Không tìm thấy trang</div>
       <nuxt-link to="/">
-        <v-btn width="100%" color="red" dark>Về trang chủ</v-btn>
+        <v-btn width="100%" color="danger" dark>Về trang chủ</v-btn>
       </nuxt-link>
     </v-sheet>
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
-import { theme } from '~/themes';
 
-export default Vue.extend({
-  computed: {
-    darkMode() {
-      return this.$store.state.common.darkMode;
-    },
-    theme() {
-      return theme;
-    },
-  },
-});
-</script>

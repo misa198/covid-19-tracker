@@ -22,7 +22,6 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import { theme } from '~/themes';
 import VaccineChart from '~/components/vaccine/VaccineChart.vue';
 import HomeContainer from '~/components/common/HomeContainer.vue';
 
@@ -30,14 +29,6 @@ export default Vue.extend({
   components: {
     VaccineChart,
     HomeContainer,
-  },
-  computed: {
-    darkMode() {
-      return this.$store.state.common.darkMode;
-    },
-    theme() {
-      return theme;
-    },
   },
 });
 </script>

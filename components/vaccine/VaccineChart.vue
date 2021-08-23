@@ -4,9 +4,7 @@
     rounded
     elevation="2"
     class="pt-3 py-2 pb-2 vaccine-chart"
-    :color="
-      darkMode ? theme.dark.headerBackground : theme.light.headerBackground
-    "
+    color="headerBackground"
   >
     <div class="text-h6 font-weight-bold text-center" v-text="label" />
     <apexchart width="100%" :type="type" :options="options" :series="series" />
