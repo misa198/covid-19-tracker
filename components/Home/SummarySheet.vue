@@ -2,7 +2,7 @@
   <v-sheet
     class="ma-auto mt-1 py-3 px-3"
     elevation="2"
-    max-width="500px"
+    max-width="700px"
     rounded
     :color="
       darkMode ? theme.dark.headerBackground : theme.light.headerBackground
@@ -28,7 +28,15 @@
       class="subtitle-1 font-weight-bold text-center pt-4 pb-2 red--text"
       v-text="bodyTitle"
     />
-    <v-row class="ma-auto px-6 pb-2" width="100%">
+    <div
+      class="ma-auto px-6 pb-2"
+      style="
+         {
+          flex-direction: 'column !important';
+        }
+      "
+      width="100%"
+    >
       <v-row>
         <SumaryItem
           :show-daily-value="true"
@@ -65,7 +73,7 @@
           :daily-value="2000"
         />
       </v-row>
-    </v-row>
+    </div>
   </v-sheet>
 </template>
 <script lang="ts">
