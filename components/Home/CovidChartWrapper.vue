@@ -6,7 +6,7 @@
     }"
   >
     <v-row class="mx-auto pt-7 pb-3">
-      <v-col v-for="option in options" :key="option.value" cols="4">
+      <v-col v-for="option in options" :key="option.value" md="4">
         <v-btn
           :outlined="selected !== option.value"
           :color="theme.default.danger"
@@ -18,7 +18,7 @@
       </v-col>
     </v-row>
     <v-row class="mb-4">
-      <v-col xs="12" md="6">
+      <v-col md="6" sm="12" cols="12">
         <Chart
           :label="'Tổng số ca nhiễm tại Việt Nam'"
           :categories="[1, 2, 3, 4, 5]"
@@ -26,7 +26,7 @@
           :type="'area'"
         />
       </v-col>
-      <v-col xs="12" md="6">
+      <v-col md="6" sm="12" cols="12">
         <Chart
           :label="'Số ca theo ngày'"
           :categories="[1, 2, 3, 4, 5]"
@@ -36,7 +36,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col xs="12" md="6">
+      <v-col md="6" sm="12" cols="12">
         <Chart
           :label="'Tỉnh nhiều ca nhiễm nhất'"
           :categories="[1, 2, 3, 4, 5]"
@@ -44,7 +44,7 @@
           :type="'bar'"
         />
       </v-col>
-      <v-col xs="12" md="6">
+      <v-col md="6" sm="12" cols="12">
         <Chart
           :label="'Tỉnh nhiều ca nhiễm nhất trong ngày'"
           :categories="[1, 2, 3, 4, 5]"
@@ -68,9 +68,9 @@ export default Vue.extend({
   data() {
     return {
       options: [
-        { value: 'vn', label: 'Việt Nam' },
         { value: 'hn', label: 'Hà Nội' },
         { value: 'hcm', label: 'TP.HCM' },
+        { value: 'vn', label: 'Việt Nam' },
       ],
     };
   },
