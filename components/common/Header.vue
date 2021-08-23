@@ -64,7 +64,7 @@ export default Vue.extend({
       drawer: true,
       items: [
         {
-          icon: 'mdi-home',
+          icon: 'mdi-home-variant-outline',
           title: 'Trang chủ',
           to: '/',
         },
