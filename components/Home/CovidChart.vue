@@ -3,7 +3,7 @@
     width="100%"
     rounded
     elevation="2"
-    class="pt-3 py-2 pb-2"
+    class="pt-3 py-2 pb-2 covid-chart"
     :color="
       darkMode ? theme.dark.headerBackground : theme.light.headerBackground
     "
@@ -42,6 +42,7 @@ export default Vue.extend({
         colors: [theme.default.danger],
         chart: {
           id: 'chart',
+          zoom: false,
           toolbar: {
             show: false,
           },
@@ -68,3 +69,14 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss">
+.covid-chart.theme--dark {
+  .apexcharts-legend-text {
+    color: #fff !important;
+  }
+  .apexcharts-tooltip {
+    color: #000 !important;
+  }
+}
+</style>

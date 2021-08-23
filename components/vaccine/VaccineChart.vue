@@ -42,6 +42,7 @@ export default Vue.extend({
         colors: [theme.default.successSecondary, theme.default.success],
         chart: {
           id: 'chart',
+          zoom: false,
           toolbar: {
             show: false,
           },
@@ -77,6 +78,9 @@ export default Vue.extend({
 .vaccine-chart.theme--dark {
   .apexcharts-legend-text {
     color: #fff !important;
+  }
+  .apexcharts-tooltip {
+    color: #000 !important;
   }
 }
 </style>
