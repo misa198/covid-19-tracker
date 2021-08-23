@@ -14,7 +14,7 @@
     </v-row>
     <v-row class="mb-4">
       <v-col md="6" sm="12" cols="12">
-        <Chart
+        <CovidChart
           :label="'Tổng số ca nhiễm tại Việt Nam'"
           :categories="[1, 2, 3, 4, 5]"
           :data="[1, 2, 3, 4, 6]"
@@ -22,7 +22,7 @@
         />
       </v-col>
       <v-col md="6" sm="12" cols="12">
-        <Chart
+        <CovidChart
           :label="'Số ca theo ngày'"
           :categories="[1, 2, 3, 4, 5]"
           :data="[1, 2, 3, 4, 6]"
@@ -32,7 +32,7 @@
     </v-row>
     <v-row>
       <v-col md="6" sm="12" cols="12">
-        <Chart
+        <CovidChart
           :label="'Tỉnh nhiều ca nhiễm nhất'"
           :categories="[1, 2, 3, 4, 5]"
           :data="[1, 2, 3, 4, 6]"
@@ -40,7 +40,7 @@
         />
       </v-col>
       <v-col md="6" sm="12" cols="12">
-        <Chart
+        <CovidChart
           :label="'Tỉnh nhiều ca nhiễm nhất trong ngày'"
           :categories="[1, 2, 3, 4, 5]"
           :data="[1, 2, 3, 4, 6]"
@@ -54,12 +54,12 @@
 import Vue from 'vue';
 import { theme } from '~/themes';
 import { Selected } from '@/store/home';
-import Chart from '@/components/Home/Chart.vue';
+import CovidChart from '~/components/Home/CovidChart.vue';
 import HomeContainer from '@/components/Home/HomeContainer.vue';
 
 export default Vue.extend({
   components: {
-    Chart,
+    CovidChart,
     HomeContainer,
   },
   data() {
