@@ -50,13 +50,18 @@ import { theme } from '@/themes';
 export default Vue.extend({
   data() {
     return {
-      mini: false,
-      drawer: false,
+      mini: true,
+      drawer: true,
       items: [
         {
           icon: 'mdi-home',
           title: 'Trang chủ',
           to: '/',
+        },
+        {
+          icon: 'mdi-needle',
+          title: 'Vaccine',
+          to: '/vaccine',
         },
         {
           icon: 'mdi-web',
