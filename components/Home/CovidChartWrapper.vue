@@ -5,7 +5,7 @@
       margin: 'auto',
     }"
   >
-    <v-row class="mx-auto pt-5">
+    <v-row class="mx-auto py-7">
       <v-col v-for="option in options" :key="option.value" cols="4">
         <v-btn
           :outlined="selected !== option.value"
