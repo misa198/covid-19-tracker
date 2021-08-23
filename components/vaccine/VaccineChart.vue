@@ -3,7 +3,7 @@
     width="100%"
     rounded
     elevation="2"
-    class="pt-3 py-2 pb-2"
+    class="pt-3 py-2 pb-2 vaccine-chart"
     :color="
       darkMode ? theme.dark.headerBackground : theme.light.headerBackground
     "
@@ -72,3 +72,11 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss">
+.vaccine-chart.theme--dark {
+  .apexcharts-legend-text {
+    color: #fff !important;
+  }
+}
+</style>
