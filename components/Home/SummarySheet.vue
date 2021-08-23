@@ -14,14 +14,57 @@
       <div class="caption text-center pb-2" v-text="headerSubTitle" />
     </v-sheet>
     <div
-      class="text-h7 font-weight-bold text-center pt-4 red--text"
+      class="subtitle-1 font-weight-bold text-center pt-4 pb-2 red--text"
       v-text="bodyTitle"
     />
+    <v-row class="ma-auto px-6 pb-2" width="100%">
+      <v-row>
+        <SumaryItem
+          :show-daily-value="true"
+          :color="'#FB8C00'"
+          :sub-color="'#FFF9C4'"
+          :title="'Ca nhiễm mới'"
+          :total-value="100000"
+          :daily-value="2000"
+        />
+        <SumaryItem
+          :show-daily-value="true"
+          :color="'#00C853'"
+          :sub-color="'#B9F6CA'"
+          :title="'Hồi phục'"
+          :total-value="100000"
+          :daily-value="2000"
+        />
+      </v-row>
+      <v-row>
+        <SumaryItem
+          :show-daily-value="true"
+          :color="'#D84315'"
+          :sub-color="'#FFCCBC'"
+          :title="'Tử vong'"
+          :total-value="100000"
+          :daily-value="2000"
+        />
+        <SumaryItem
+          :show-daily-value="true"
+          :color="'#455A64'"
+          :sub-color="'#CFD8DC'"
+          :title="'Đang chữa trị'"
+          :total-value="100000"
+          :daily-value="2000"
+        />
+      </v-row>
+    </v-row>
   </v-sheet>
 </template>
 <script lang="ts">
 import Vue from 'vue';
+import SumaryItem from '@/components/Home/SummaryItem.vue';
+
 export default Vue.extend({
+  components: {
+    SumaryItem,
+  },
   data() {
     return {
       headerTitle: 'Số liệu Covid-19 tại Việt Nam',
