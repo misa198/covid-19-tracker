@@ -1,42 +1,39 @@
 <template>
-  <v-app dark>
-    <h1 v-if="error.statusCode === 404">
-      {{ pageNotFound }}
-    </h1>
-    <h1 v-else>
-      {{ otherError }}
-    </h1>
-    <NuxtLink to="/"> Home page </NuxtLink>
-  </v-app>
+  <div
+    class="d-flex justify-center align-center"
+    :style="{
+      height: '100%',
+    }"
+  >
+    <v-sheet
+      class="ma-auto pa-12"
+      max-width="750px"
+      rounded
+      elevation="2"
+      :color="
+        darkMode ? theme.dark.headerBackground : theme.light.headerBackground
+      "
+    >
+      <div class="mb-4 text-h1 font-weight-bold text-center">404</div>
+      <div class="text-h5 mb-8">Không tìm thấy trang</div>
+      <nuxt-link to="/">
+        <v-btn width="100%" color="red" dark>Về trang chủ</v-btn>
+      </nuxt-link>
+    </v-sheet>
+  </div>
 </template>
+<script lang="ts">
+import Vue from 'vue';
+import { theme } from '~/themes';
 
-<script>
-export default {
-  layout: 'empty',
-  props: {
-    error: {
-      type: Object,
-      default: null,
+export default Vue.extend({
+  computed: {
+    darkMode() {
+      return this.$store.state.common.darkMode;
+    },
+    theme() {
+      return theme;
     },
   },
-  data() {
-    return {
-      pageNotFound: '404 Not Found',
-      otherError: 'An error occurred',
-    }
-  },
-  head() {
-    const title =
-      this.error.statusCode === 404 ? this.pageNotFound : this.otherError
-    return {
-      title,
-    }
-  },
-}
+});
 </script>
-
-<style scoped>
-h1 {
-  font-size: 20px;
-}
-</style>
