@@ -55,7 +55,7 @@ import Vue from 'vue';
 import { theme } from '~/themes';
 import { Selected } from '@/store/home';
 import CovidChart from '~/components/home/CovidChart.vue';
-import HomeContainer from '@/components/home/HomeContainer.vue';
+import HomeContainer from '~/components/common/HomeContainer.vue';
 
 export default Vue.extend({
   components: {

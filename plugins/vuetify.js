@@ -8,7 +8,7 @@ export default new Vuetify({
       primary: '#d84315',
       warning: '#FB8C00',
       warningSecondary: '#FFF9C4',
-      success: '#00C853',
+      success: '#10b981',
       successSecondary: '#B9F6CA',
       danger: '#D84315',
       dangerSecondary: '#FFCCBC',
