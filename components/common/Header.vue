@@ -9,7 +9,16 @@
       "
     >
       <v-app-bar-nav-icon @click.stop="toggleDrawer" />
-      <v-toolbar-title v-text="title" />
+      <nuxt-link to="/">
+        <v-toolbar-title
+          :style="{
+            userSelect: 'none',
+            color:
+              (darkMode ? theme.dark.text : theme.light.text) + '!important',
+          }"
+          v-text="title"
+        />
+      </nuxt-link>
       <v-spacer />
       <v-btn icon @click="changeThemes">
         <v-icon>mdi-brightness-6</v-icon>
