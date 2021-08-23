@@ -65,7 +65,7 @@
             :daily-value="2000"
           />
           <SumaryItem
-            :show-daily-value="true"
+            :show-daily-value="false"
             :color="theme.default.info"
             :sub-color="theme.default.infoSecondary"
             :title="'Đang chữa trị'"

@@ -2,9 +2,9 @@
   <v-col cols="6" class="px-2">
     <div
       class="subtitle-2 text-center"
-      :style="{ color: color }"
+      :style="{ color: showDailyValue ? color : 'transparent' }"
       v-text="
-        showDailyValue ? `Hôm nay: ${formatNumberMethod(dailyValue)}` : '&nbsp;'
+        showDailyValue ? `Hôm nay: ${formatNumberMethod(dailyValue)}` : 'abc'
       "
     />
     <div
