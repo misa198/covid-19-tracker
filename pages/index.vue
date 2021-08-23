@@ -1,7 +1,9 @@
 <template>
   <v-container>
     <SummarySheet />
-    <CovidChartWrapper />
+    <client-only>
+      <CovidChartWrapper />
+    </client-only>
   </v-container>
 </template>
 <script lang="ts">
