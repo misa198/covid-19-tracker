@@ -109,7 +109,6 @@ export default Vue.extend({
     },
     changeThemes() {
       this.$store.commit('common/changeTheme');
-      console.log((this as any).$vuetify.breakpoint);
     },
   },
 });
