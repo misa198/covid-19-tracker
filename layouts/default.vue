@@ -13,7 +13,7 @@
 
 <script>
 import Vue from 'vue';
-import Header from '~/components/common/Header.vue';
+import Header from '@/components/common/Header.vue';
 import { theme } from '@/themes';
 
 export default Vue.extend({

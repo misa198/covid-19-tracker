@@ -1,10 +1,10 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - covid19',
-    title: 'covid19',
+    titleTemplate: 'Covid-19 Tracker',
+    title: 'Covid-19 Tracker',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'vi',
     },
     meta: [
       { charset: 'utf-8' },
