@@ -4,9 +4,20 @@
     elevation="2"
     max-width="500px"
     rounded
-    color="headerBackground"
+    :color="
+      darkMode ? theme.dark.headerBackground : theme.light.headerBackground
+    "
   >
-    <v-sheet class="mx-auto" color="secondaryBackground" width="100%" rounded>
+    <v-sheet
+      class="mx-auto"
+      :color="
+        darkMode
+          ? theme.dark.secondaryBackground
+          : theme.light.secondaryBackground
+      "
+      width="100%"
+      rounded
+    >
       <div
         class="text-h6 font-weight-bold text-center pt-2"
         v-text="headerTitle"
@@ -21,16 +32,16 @@
       <v-row>
         <SumaryItem
           :show-daily-value="true"
-          :color="'#FB8C00'"
-          :sub-color="'#FFF9C4'"
+          :color="theme.default.warning"
+          :sub-color="theme.default.warningSecondary"
           :title="'Ca nhiễm mới'"
           :total-value="100000"
           :daily-value="2000"
         />
         <SumaryItem
           :show-daily-value="true"
-          :color="'#00C853'"
-          :sub-color="'#B9F6CA'"
+          :color="theme.default.success"
+          :sub-color="theme.default.successSecondary"
           :title="'Hồi phục'"
           :total-value="100000"
           :daily-value="2000"
@@ -39,16 +50,16 @@
       <v-row>
         <SumaryItem
           :show-daily-value="true"
-          :color="'#D84315'"
-          :sub-color="'#FFCCBC'"
+          :color="theme.default.danger"
+          :sub-color="theme.default.dangerSecondary"
           :title="'Tử vong'"
           :total-value="100000"
           :daily-value="2000"
         />
         <SumaryItem
           :show-daily-value="true"
-          :color="'#455A64'"
-          :sub-color="'#CFD8DC'"
+          :color="theme.default.info"
+          :sub-color="theme.default.infoSecondary"
           :title="'Đang chữa trị'"
           :total-value="100000"
           :daily-value="2000"
@@ -60,6 +71,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import SumaryItem from '@/components/Home/SummaryItem.vue';
+import { theme } from '~/themes';
 
 export default Vue.extend({
   components: {
@@ -71,6 +83,14 @@ export default Vue.extend({
       headerSubTitle: `Cập nhật ${'3 giờ'} trước`,
       bodyTitle: 'Kể từ khi dịch bùng phát từ đầu 2020 đến nay',
     };
+  },
+  computed: {
+    darkMode() {
+      return this.$store.state.common.darkMode;
+    },
+    theme() {
+      return theme;
+    },
   },
 });
 </script>

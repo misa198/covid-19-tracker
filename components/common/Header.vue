@@ -1,6 +1,13 @@
 <template>
   <div>
-    <v-app-bar fixed app elevation="1" color="headerBackground">
+    <v-app-bar
+      fixed
+      app
+      elevation="1"
+      :color="
+        darkMode ? theme.dark.headerBackground : theme.light.headerBackground
+      "
+    >
       <v-app-bar-nav-icon @click.stop="toggleDrawer" />
       <v-toolbar-title v-text="title" />
       <v-spacer />
@@ -8,7 +15,14 @@
         <v-icon>mdi-brightness-6</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" color="headerBackground" fixed app>
+    <v-navigation-drawer
+      v-model="drawer"
+      :color="
+        darkMode ? theme.dark.headerBackground : theme.light.headerBackground
+      "
+      fixed
+      app
+    >
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -30,6 +44,7 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
+import { theme } from '@/themes';
 
 export default Vue.extend({
   data() {
@@ -59,6 +74,14 @@ export default Vue.extend({
       ],
       title: 'Covid 19 Tracker',
     };
+  },
+  computed: {
+    darkMode() {
+      return this.$store.state.common.darkMode;
+    },
+    theme() {
+      return theme;
+    },
   },
   methods: {
     toggleDrawer() {

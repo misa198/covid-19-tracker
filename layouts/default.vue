@@ -1,7 +1,11 @@
 <template>
   <v-app>
     <Header />
-    <v-main :style="{ background: darkMode ? '#111827' : '#f9fafb' }">
+    <v-main
+      :style="{
+        background: darkMode ? theme.dark.background : theme.light.background,
+      }"
+    >
       <Nuxt />
     </v-main>
   </v-app>
@@ -10,6 +14,7 @@
 <script>
 import Vue from 'vue';
 import Header from '~/components/common/Header.vue';
+import { theme } from '@/themes';
 
 export default Vue.extend({
   name: 'Layout',
@@ -19,6 +24,9 @@ export default Vue.extend({
   computed: {
     darkMode() {
       return this.$store.state.common.darkMode;
+    },
+    theme() {
+      return theme;
     },
   },
   watch: {

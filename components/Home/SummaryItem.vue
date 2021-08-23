@@ -25,6 +25,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { formatNumber } from '@/utils/formatNumber';
+
 export default Vue.extend({
   props: {
     color: {
