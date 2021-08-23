@@ -1,12 +1,14 @@
 <template>
-  <HomeContainer>
-    <VaccineSumary />
-    <div>
-      <client-only>
-        <VaccineChartWrapper />
-      </client-only>
-    </div>
-  </HomeContainer>
+  <v-container>
+    <HomeContainer>
+      <VaccineSumary />
+      <div>
+        <client-only>
+          <VaccineChartWrapper />
+        </client-only>
+      </div>
+    </HomeContainer>
+  </v-container>
 </template>
 
 <script lang="ts">
