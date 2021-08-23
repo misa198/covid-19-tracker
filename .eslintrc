@@ -10,5 +10,7 @@
     "prettier"
   ],
   "plugins": [],
-  "rules": {}
+  "rules": {
+    "vue/component-definition-name-casing": "off"
+  }
 }
