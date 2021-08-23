@@ -1,4 +1,12 @@
 <div>
+  <v-app-bar fixed app elevate-on-scroll>
+    <v-app-bar-nav-icon @click.stop="toggleDrawer" />
+    <v-toolbar-title v-text="title" />
+    <v-spacer />
+    <v-btn icon @click="changeThemes">
+      <v-icon>mdi-brightness-6</v-icon>
+    </v-btn>
+  </v-app-bar>
   <v-navigation-drawer v-model="drawer" fixed app>
     <v-list>
       <v-list-item
@@ -17,12 +25,4 @@
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
-  <v-app-bar fixed app>
-    <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-    <v-toolbar-title v-text="title" />
-    <v-spacer />
-    <v-btn icon>
-      <v-icon>mdi-brightness-6</v-icon>
-    </v-btn>
-  </v-app-bar>
 </div>

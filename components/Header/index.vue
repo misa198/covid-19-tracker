@@ -1,6 +1,7 @@
 <template src="./index.html"></template>
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
+
 export default Vue.extend({
   data() {
     return {
@@ -28,7 +29,15 @@ export default Vue.extend({
         },
       ],
       title: 'Covid 19 Tracker',
-    }
+    };
   },
-})
+  methods: {
+    toggleDrawer() {
+      this.drawer = !this.drawer;
+    },
+    changeThemes() {
+      this.$store.commit('common/changeTheme');
+    },
+  },
+});
 </script>
