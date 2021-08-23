@@ -41,12 +41,6 @@ export default {
     '@nuxtjs/axios',
   ],
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
-
-  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
-  vuetify: {},
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     vendor: ['vue-apexchart'],

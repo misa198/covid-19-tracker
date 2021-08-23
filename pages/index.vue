@@ -1,17 +1,16 @@
 <template>
-  <div>
-    <client-only>
-      <Chart />
-    </client-only>
-  </div>
+  <v-container>
+    <SummarySheet />
+  </v-container>
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import Chart from '@/components/Chart/index.vue';
+import SummarySheet from '~/components/Home/SummarySheet.vue';
 
 export default Vue.extend({
   components: {
-    Chart,
+    SummarySheet,
   },
+
 });
 </script>

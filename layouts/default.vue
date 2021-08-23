@@ -1,17 +1,15 @@
 <template>
-  <v-app dark>
+  <v-app>
     <Header />
-    <v-main>
-      <v-container>
-        <Nuxt />
-      </v-container>
+    <v-main :style="{ background: darkMode ? '#111827' : '#f9fafb' }">
+      <Nuxt />
     </v-main>
   </v-app>
 </template>
 
 <script>
 import Vue from 'vue';
-import Header from '@/components/Header/index.vue';
+import Header from '~/components/common/Header.vue';
 
 export default Vue.extend({
   name: 'Layout',
