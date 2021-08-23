@@ -4,7 +4,7 @@
     <client-only>
       <CovidChartWrapper />
     </client-only>
-    <div class="mt-8">
+    <div class="mt-8 mb-8">
       <HomeContainer>
         <CovidTable />
       </HomeContainer>
