@@ -1,10 +1,5 @@
 <template>
-  <div
-    :style="{
-      maxWidth: '750px',
-      margin: 'auto',
-    }"
-  >
+  <HomeContainer>
     <v-row class="mx-auto pt-7 pb-3">
       <v-col v-for="option in options" :key="option.value" md="4">
         <v-btn
@@ -53,17 +48,19 @@
         />
       </v-col>
     </v-row>
-  </div>
+  </HomeContainer>
 </template>
 <script lang="ts">
 import Vue from 'vue';
 import { theme } from '~/themes';
 import { Selected } from '@/store/home';
 import Chart from '@/components/Home/Chart.vue';
+import HomeContainer from '@/components/Home/HomeContainer.vue';
 
 export default Vue.extend({
   components: {
     Chart,
+    HomeContainer,
   },
   data() {
     return {
