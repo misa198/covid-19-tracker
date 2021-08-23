@@ -21,10 +21,12 @@ export default Vue.extend({
           title: 'Tin tức',
           to: '/news',
         },
+        {
+          icon: 'mdi-information-outline',
+          title: 'Giới thiệu',
+          to: '/about',
+        },
       ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
       title: 'Covid 19 Tracker',
     }
   },
