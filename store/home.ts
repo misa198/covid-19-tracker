@@ -2,7 +2,7 @@ import Vue from 'vue';
 
 export type Selected = 'vn' | 'hn' | 'hcm';
 
-interface HomeState {
+export interface HomeState {
   selected: Selected;
 }
 

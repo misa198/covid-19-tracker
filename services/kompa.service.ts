@@ -47,14 +47,12 @@ export const fetchKompaVietNamCases =
 
 export interface KompaWorldwideCasesResponse {
   data: {
-    totalConfirmed: {
-      totalConfirmed: string;
-      totalConfirmedLast: string;
-      totalRecovered: string;
-      totalRecoveredLast: string;
-      totalDeath: string;
-      totalDeathLast: string;
-    };
+    totalConfirmed: number;
+    totalConfirmedLast: number;
+    totalRecovered: number;
+    totalRecoveredLast: number;
+    totalDeaths: number;
+    totalDeathsLast: number;
   };
 }
 
@@ -68,8 +66,8 @@ export const fetchKompaWorldwideCases = async () => {
         totalConfirmedLast
         totalRecovered
         totalRecoveredLast
-        totalDeath
-        totalDeathLast
+        totalDeaths
+        totalDeathsLast
       }
     `,
   };

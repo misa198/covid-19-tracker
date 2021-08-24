@@ -15,5 +15,8 @@ export default Vue.extend({
     WorldSummary,
     HomeContainer,
   },
+  created() {
+    this.$store.dispatch('world/fetchWorldwideCasesData');
+  },
 });
 </script>

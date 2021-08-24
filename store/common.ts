@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-interface CommonState {
+export interface CommonState {
   darkMode: boolean;
 }
 
