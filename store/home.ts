@@ -6,7 +6,7 @@ import {
   KompaVietnamCasesResponse,
 } from '~/services/kompa.service';
 
-interface TrendingLineCasesData {
+export interface TrendingLineCasesData {
   date: string;
   confirmed: number;
   recovered: number;

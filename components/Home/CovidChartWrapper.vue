@@ -25,21 +25,9 @@ export default Vue.extend({
     HomeContainer,
     CovidProvinceChart,
   },
-  data() {
-    return {
-      options: [
-        { value: 'hn', label: 'Hà Nội' },
-        { value: 'hcm', label: 'TP.HCM' },
-        { value: 'vn', label: 'Việt Nam' },
-      ],
-    };
-  },
   computed: {
     darkMode() {
       return this.$store.state.common.darkMode;
-    },
-    selected() {
-      return this.$store.state.home.selected;
     },
     theme() {
       return theme;
