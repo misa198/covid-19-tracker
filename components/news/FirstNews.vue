@@ -18,6 +18,7 @@
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
+          borderRadius: '4px',
         }"
       ></div>
     </v-row>
