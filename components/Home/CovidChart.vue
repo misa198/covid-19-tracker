@@ -44,26 +44,6 @@ export default Vue.extend({
   data() {
     return {
       label: 'Diễn biến dịch Covid-19 tại Việt Nam',
-      options: {
-        theme: {
-          mode: (this.$store as any).state.common.darkMode ? 'dark' : 'light',
-        },
-        dataLabels: {
-          enabled: false,
-        },
-        colors: [
-          theme.default.warning,
-          theme.default.danger,
-          theme.default.success,
-        ],
-        chart: {
-          id: 'chart',
-          zoom: false,
-          toolbar: {
-            show: false,
-          },
-        },
-      },
     };
   },
   computed: {
@@ -88,6 +68,28 @@ export default Vue.extend({
         confirmed: confirmed.slice(Math.max(confirmed.length - 100, 1)),
         recovered: recovered.slice(Math.max(recovered.length - 100, 1)),
         deaths: deaths.slice(Math.max(deaths.length - 100, 1)),
+      };
+    },
+    options() {
+      return {
+        theme: {
+          mode: (this.$store as any).state.common.darkMode ? 'dark' : 'light',
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        colors: [
+          theme.default.warning,
+          theme.default.danger,
+          theme.default.success,
+        ],
+        chart: {
+          id: 'chart',
+          zoom: false,
+          toolbar: {
+            show: false,
+          },
+        },
       };
     },
     theme() {

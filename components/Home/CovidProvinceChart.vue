@@ -44,22 +44,6 @@ export default Vue.extend({
   data() {
     return {
       label: 'Tỉnh thành có nhiều ca nhiễm nhất',
-      options: {
-        theme: {
-          mode: (this.$store as any).state.common.darkMode ? 'dark' : 'light',
-        },
-        dataLabels: {
-          enabled: true,
-        },
-        colors: [theme.default.danger],
-        chart: {
-          id: 'chart',
-          zoom: false,
-          toolbar: {
-            show: false,
-          },
-        },
-      },
     };
   },
   computed: {
@@ -86,6 +70,24 @@ export default Vue.extend({
         cases.push(province.confirmed);
       });
       return { names, cases };
+    },
+    options() {
+      return {
+        theme: {
+          mode: (this.$store as any).state.common.darkMode ? 'dark' : 'light',
+        },
+        dataLabels: {
+          enabled: true,
+        },
+        colors: [theme.default.danger],
+        chart: {
+          id: 'chart',
+          zoom: false,
+          toolbar: {
+            show: false,
+          },
+        },
+      };
     },
   },
 });
