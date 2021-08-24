@@ -68,7 +68,7 @@
             :show-daily-value="false"
             :color="theme.default.info"
             :sub-color="theme.default.infoSecondary"
-            :title="'Đang chữa trị'"
+            :title="'Đang điều trị'"
             :total-value="summary.data.curing"
             :loading="summary.loading"
           />
