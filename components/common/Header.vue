@@ -11,6 +11,7 @@
       <v-app-bar-nav-icon @click.stop="toggleDrawer" />
       <nuxt-link to="/">
         <v-toolbar-title
+          class="text-h6 font-weight-black"
           :style="{
             userSelect: 'none',
             color:
@@ -87,7 +88,7 @@ export default Vue.extend({
           to: '/about',
         },
       ],
-      title: 'Covid 19 Tracker',
+      title: 'Covid-19 Tracker',
     };
   },
   computed: {
