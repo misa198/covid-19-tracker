@@ -30,12 +30,10 @@
       />
       <div
         class="ma-auto px-6 pb-2"
-        style="
-           {
-            flex-direction: 'column !important';
-          }
-        "
-        width="100%"
+        :style="{
+          flexDirection: 'column !important',
+          width: '100%',
+        }"
       >
         <v-row>
           <SumaryItem

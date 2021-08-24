@@ -26,7 +26,7 @@
           :label="'Số ca theo ngày'"
           :categories="[1, 2, 3, 4, 5]"
           :data="[1, 2, 3, 4, 6]"
-          :type="'line'"
+          :type="'area'"
         />
       </v-col>
     </v-row>
