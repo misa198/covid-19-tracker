@@ -12,6 +12,8 @@
   "plugins": [],
   "rules": {
     "vue/component-definition-name-casing": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "import/first": "off",
+    "import/order": "off"
   }
 }
