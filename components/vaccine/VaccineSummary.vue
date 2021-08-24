@@ -1,6 +1,6 @@
 <template>
   <v-sheet
-    class="ma-auto mt-8 pb-8"
+    class="ma-auto mt-4 pb-8"
     elevation="2"
     rounded
     :color="
