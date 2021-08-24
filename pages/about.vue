@@ -18,12 +18,16 @@
           Covid 19 Tracker
         </div>
         <div class="text-subtitle-1 font-weight-bold text-center mb-2">
-          Cung cấp bởi Thành Vũ
+          Cung cấp bởi
+          <a href="https://misa198.vercel.app" target="_blank">Thành Vũ</a>
         </div>
-        <div class="text-subtitle-1 font-weight-bold text-center">
+        <div class="text-subtitle-1 font-weight-bold text-center mb-4">
           Dữ liệu từ
           <a href="https://vnexpress.net/" target="_blank">VnExpress</a>,
           <a href="https://zingnews.vn/" target="_blank">Zing News</a>
+        </div>
+        <div class="text-subtitle-1 font-weight-bold text-center">
+          <a href="https://github.com/" target="_blank">Github repository</a>
         </div>
       </v-sheet>
     </HomeContainer>
