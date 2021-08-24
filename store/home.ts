@@ -13,7 +13,7 @@ export interface TrendingLineCasesData {
   deaths: number;
 }
 
-interface ProvinceCasesData {
+export interface ProvinceCasesData {
   confirmed: number;
   deaths: number;
   recovered: number;
