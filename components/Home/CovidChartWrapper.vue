@@ -1,19 +1,7 @@
 <template>
   <HomeContainer>
-    <v-row class="mx-auto pt-7 pb-3">
-      <v-col v-for="option in options" :key="option.value" md="4">
-        <v-btn
-          :outlined="selected !== option.value"
-          :color="theme.default.danger"
-          dark
-          width="100%"
-          @click="changeSelected(option.value)"
-          >{{ option.label }}</v-btn
-        >
-      </v-col>
-    </v-row>
-    <v-row class="mb-4">
-      <v-col md="6" sm="12" cols="12">
+    <v-row class="my-4">
+      <v-col cols="12">
         <CovidChart
           :label="'Tổng số ca nhiễm tại Việt Nam'"
           :categories="[1, 2, 3, 4, 5]"
@@ -21,27 +9,11 @@
           :type="'area'"
         />
       </v-col>
-      <v-col md="6" sm="12" cols="12">
-        <CovidChart
-          :label="'Số ca theo ngày'"
-          :categories="[1, 2, 3, 4, 5]"
-          :data="[1, 2, 3, 4, 6]"
-          :type="'area'"
-        />
-      </v-col>
     </v-row>
     <v-row>
-      <v-col md="6" sm="12" cols="12">
+      <v-col cols="12">
         <CovidChart
           :label="'Tỉnh nhiều ca nhiễm nhất'"
-          :categories="[1, 2, 3, 4, 5]"
-          :data="[1, 2, 3, 4, 6]"
-          :type="'bar'"
-        />
-      </v-col>
-      <v-col md="6" sm="12" cols="12">
-        <CovidChart
-          :label="'Tỉnh nhiều ca nhiễm nhất trong ngày'"
           :categories="[1, 2, 3, 4, 5]"
           :data="[1, 2, 3, 4, 6]"
           :type="'bar'"
