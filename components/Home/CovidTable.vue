@@ -2,7 +2,7 @@
   <div class="covid-table">
     <v-data-table
       :headers="headers"
-      :items="desserts"
+      :items="provinceCasesState.data"
       :items-per-page="5"
       class="elevation-2"
     >
@@ -29,64 +29,18 @@ export default Vue.extend({
       headers: [
         {
           text: 'Tỉnh thành',
-          value: 'city',
+          value: 'provinceName',
         },
-        { text: 'Hôm nay', value: 'today' },
-        { text: 'Tổng', value: 'total' },
-      ],
-      desserts: [
-        {
-          city: 'Frozen Yogurt',
-          today: 159,
-          total: 6.0,
-        },
-        {
-          city: 'Ice cream sandwich',
-          today: 237,
-          total: 9.0,
-        },
-        {
-          city: 'Eclair',
-          today: 262,
-          total: 16.0,
-        },
-        {
-          city: 'Cupcake',
-          today: 305,
-          total: 3.7,
-        },
-        {
-          city: 'Gingerbread',
-          today: 356,
-          total: 16.0,
-        },
-        {
-          city: 'Jelly bean',
-          today: 375,
-          total: 0.0,
-        },
-        {
-          city: 'Lollipop',
-          today: 392,
-          total: 0.2,
-        },
-        {
-          city: 'Honeycomb',
-          today: 408,
-          total: 3.2,
-        },
-        {
-          city: 'Donut',
-          today: 452,
-          total: 25.0,
-        },
-        {
-          city: 'KitKat',
-          today: 518,
-          total: 26.0,
-        },
+        { text: 'Nhiễm bệnh', value: 'confirmed' },
+        { text: 'Hồi phục', value: 'recovered' },
+        { text: 'Tử vong', value: 'deaths' },
       ],
     };
+  },
+  computed: {
+    provinceCasesState() {
+      return (this.$store as any).state.home.provinceCases;
+    },
   },
 });
 </script>

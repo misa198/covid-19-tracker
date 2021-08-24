@@ -96,17 +96,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style lang="scss">
-.covid-chart.theme--dark {
-  .apexcharts-legend-text {
-    color: #fff !important;
-  }
-  .apexcharts-tooltip {
-    color: #000 !important;
-  }
-  .apexcharts-text.apexcharts-xaxis-label title {
-    color: #fff !important;
-  }
-}
-</style>
