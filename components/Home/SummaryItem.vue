@@ -8,7 +8,7 @@
       "
     />
     <div
-      class="text-h4 font-weight-black text-center"
+      class="text-h5 font-weight-black text-center"
       :style="{ color: showDailyValue || !darkMode ? color : '#e5e7eb' }"
       v-text="formatNumberMethod(totalValue)"
     />
