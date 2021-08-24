@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { kompaApiUrl } from '~/constants/config';
+import { appApiUrl, kompaApiUrl } from '~/constants/config';
 
 export const axiosKompaClient = axios.create({
   baseURL: kompaApiUrl,
@@ -24,6 +24,28 @@ axiosKompaClient.interceptors.request.use(
 );
 
 axiosKompaClient.interceptors.response.use(
+  function (response: AxiosResponse) {
+    return response.data;
+  },
+  function (error) {
+    return Promise.reject(error);
+  }
+);
+
+export const axiosAppClient = axios.create({
+  baseURL: appApiUrl,
+});
+
+axiosAppClient.interceptors.request.use(
+  function (config: AxiosRequestConfig) {
+    return config;
+  },
+  function (error) {
+    return Promise.reject(error);
+  }
+);
+
+axiosAppClient.interceptors.response.use(
   function (response: AxiosResponse) {
     return response.data;
   },

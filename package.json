@@ -5,14 +5,17 @@
   "scripts": {
     "dev:server": "nodemon",
     "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
+    "build:server": "tsc --project tsconfig.server.json",
+    "build:nuxt": "nuxt build",
+    "build": "npm run build:server && npm run build:nuxt",
+    "start": "NODE_ENV=production node dist-server/server/index.js",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint": "yarn lint:js"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/proxy": "^2.1.0",
     "apexcharts": "^3.27.3",
     "axios": "^0.21.1",
     "core-js": "^3.15.1",

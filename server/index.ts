@@ -5,7 +5,7 @@ import express from 'express';
 import cors from 'cors';
 import vietnamRoute from './routers/vietnam.route';
 
-const { loadNuxt, build } = require('nuxt');
+const { loadNuxt } = require('nuxt');
 const isDev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 5000;
 
@@ -15,9 +15,8 @@ async function start() {
   app.use('/api/vietnam', vietnamRoute);
 
   if (!isDev) {
-    const nuxt = await loadNuxt(isDev ? 'dev' : 'start');
+    const nuxt = await loadNuxt('start');
     app.use(nuxt.render);
-    build(nuxt);
   } else {
     app.use(cors());
   }

@@ -1,10 +1,14 @@
 import Vue from 'vue';
 import { ActionContext } from 'vuex/types';
-import { RootState } from '.';
+import {
+  AppVietnamSummaryResponse,
+  fetchAppVietNamSummary,
+} from '~/services/app.service';
 import {
   fetchKompaVietNamCases,
   KompaVietnamCasesResponse,
 } from '~/services/kompa.service';
+import { RootState } from '.';
 
 export interface VietnamSummaryCasesData {
   confirmed: number;
@@ -70,6 +74,22 @@ export const state: () => HomeState = () => ({
 });
 
 export const mutations = {
+  fetchVietnamSummaryDataPending(state: HomeState) {
+    Vue.set(state.summary, 'loading', true);
+    Vue.set(state.summary, 'error', false);
+  },
+  fetchVietnamSummaryDataFulfilled(
+    state: HomeState,
+    payload: AppVietnamSummaryResponse
+  ) {
+    Vue.set(state.summary, 'loading', false);
+    Vue.set(state.summary, 'data', payload.data);
+  },
+  fetchVietnamSummaryDataRejected(state: HomeState) {
+    Vue.set(state.summary, 'loading', false);
+    Vue.set(state.summary, 'error', true);
+  },
+
   fetchVietnamCasesDataPending(state: HomeState) {
     Vue.set(state.trendingLineCases, 'loading', true);
     Vue.set(state.trendingLineCases, 'error', false);
@@ -111,6 +131,18 @@ export const mutations = {
 };
 
 export const actions = {
+  async fetchVietnamSummaryCasesData({
+    commit,
+  }: ActionContext<HomeState, RootState>) {
+    commit('fetchVietnamSummaryDataPending');
+    try {
+      const res = await fetchAppVietNamSummary();
+      commit('fetchVietnamSummaryDataFulfilled', res);
+    } catch (e) {
+      commit('fetchVietnamSummaryDataRejected');
+    }
+  },
+
   async fetchVietnamTrendingLineCasesData({
     commit,
   }: ActionContext<HomeState, RootState>) {
