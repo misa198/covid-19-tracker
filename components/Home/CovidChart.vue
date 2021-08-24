@@ -17,8 +17,12 @@
         ...options,
         xaxis: {
           categories: data.dates,
-          tickPlacement: 'between',
-          tickAmount: 5,
+          tickPlacement: 'on',
+          tickAmount: 3,
+          labels: {
+            rotate: 0,
+            rotateAlways: false,
+          },
         },
       }"
       :series="[
