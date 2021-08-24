@@ -13,7 +13,7 @@
       <div
         :style="{
           width: '100%',
-          paddingBottom: '40%',
+          paddingBottom: '60%',
           backgroundImage: `url(https://i-vnexpress.vnecdn.net/2021/08/24/phan-van-mai-7160-1629778509.jpg)`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',

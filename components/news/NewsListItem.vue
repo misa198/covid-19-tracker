@@ -1,7 +1,7 @@
 <template>
   <div :style="{ width: '100%' }" class="mb-2">
     <v-row>
-      <v-col xs="12" cols="4">
+      <v-col xl="4" lg="4" mid="4" sm="12" xs="12" cols="12">
         <div
           :style="{
             width: '100%',
@@ -14,7 +14,7 @@
           }"
         ></div>
       </v-col>
-      <v-col xs="12" cols="8" class="pl-0">
+      <v-col xl="8" lg="8" mid="8" sm="12" xs="12" cols="12">
         <div class="text-h6 font-weight-bold mb-2">
           Ông Phan Văn Mãi làm Chủ tịch TP HCM
         </div>
