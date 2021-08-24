@@ -7,10 +7,11 @@
   "extends": [
     "@nuxtjs/eslint-config-typescript",
     "plugin:nuxt/recommended",
-    "prettier"
+    "prettier",
   ],
   "plugins": [],
   "rules": {
-    "vue/component-definition-name-casing": "off"
+    "vue/component-definition-name-casing": "off",
+    "camelcase": "off"
   }
 }
