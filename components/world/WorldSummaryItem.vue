@@ -3,12 +3,12 @@
     <div
       class="subtitle-2 text-center"
       :style="{ color: color }"
-      v-text="`Hôm nay: ${formatNumberMethod(dailyValue)}`"
+      v-text="`Hôm nay: ${loading ? '-' : formatNumberMethod(dailyValue)}`"
     />
     <div
       class="text-h4 font-weight-black text-center"
       :style="{ color: color }"
-      v-text="formatNumberMethod(totalValue)"
+      v-text="loading ? '-' : formatNumberMethod(totalValue)"
     />
     <v-sheet class="mx-auto mt-2" :color="subColor" width="100%" rounded>
       <div
@@ -45,6 +45,10 @@ export default Vue.extend({
     totalValue: {
       type: Number,
       default: 0,
+    },
+    loading: {
+      type: Boolean,
+      default: true,
     },
   },
   computed: {

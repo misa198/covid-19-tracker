@@ -29,22 +29,34 @@
           :color="theme.default.warning"
           :sub-color="theme.default.warningSecondary"
           :title="'Ca nhiễm'"
-          :daily-value="100000"
-          :total-value="1000000"
+          :daily-value="
+            worldwideCases.data.totalConfirmed -
+            worldwideCases.data.totalConfirmedLast
+          "
+          :total-value="worldwideCases.data.totalConfirmed"
+          :loading="worldwideCases.loading"
         />
         <WorldSummaryItem
           :color="theme.default.success"
           :sub-color="theme.default.successSecondary"
           :title="'Hồi phục'"
-          :daily-value="100000"
-          :total-value="1000000"
+          :daily-value="
+            worldwideCases.data.totalRecovered -
+            worldwideCases.data.totalRecoveredLast
+          "
+          :total-value="worldwideCases.data.totalRecovered"
+          :loading="worldwideCases.loading"
         />
         <WorldSummaryItem
           :color="theme.default.danger"
           :sub-color="theme.default.dangerSecondary"
           :title="'Tử vong'"
-          :daily-value="100000"
-          :total-value="1000000"
+          :daily-value="
+            worldwideCases.data.totalDeaths -
+            worldwideCases.data.totalDeathsLast
+          "
+          :total-value="worldwideCases.data.totalDeaths"
+          :loading="worldwideCases.loading"
         />
       </div>
     </v-sheet>
@@ -74,6 +86,9 @@ export default Vue.extend({
     },
     theme() {
       return theme;
+    },
+    worldwideCases() {
+      return this.$store.state.world;
     },
   },
 });
