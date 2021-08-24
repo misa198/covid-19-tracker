@@ -1,6 +1,6 @@
 import { axiosKompaClient } from './axiosClient';
 
-export interface KompaProvinceCasesResponse {
+export interface KompaVietnamCasesResponse {
   data: {
     provinces: {
       Confirmed: string;
@@ -9,16 +9,17 @@ export interface KompaProvinceCasesResponse {
       Province_Id: string;
       Province_Name: string;
     }[];
-    totalVietNam: {
+    trendlineVnCases: {
+      date: string;
       confirmed: string;
-      deaths: string;
       recovered: string;
-    };
+      deaths: string;
+    }[];
   };
 }
 
 export const fetchKompaVietNamCases =
-  async (): Promise<KompaProvinceCasesResponse> => {
+  async (): Promise<KompaVietnamCasesResponse> => {
     const query = {
       operationName: 'provinces',
       variables: {},
@@ -34,10 +35,11 @@ export const fetchKompaVietNamCases =
           Recovered
           Last_Update
         }
-        totalVietNam {
+        trendlineVnCases {
+          date
           confirmed
-          deaths
           recovered
+          deaths
         }
       }
       `,

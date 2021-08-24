@@ -25,5 +25,8 @@ export default Vue.extend({
     CovidTable,
     HomeContainer,
   },
+  created() {
+    this.$store.dispatch('home/fetchVietnamTrendingLineCasesData');
+  },
 });
 </script>
