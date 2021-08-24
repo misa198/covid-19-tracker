@@ -19,10 +19,9 @@
         rounded
       >
         <div
-          class="text-h6 font-weight-bold text-center pt-2"
+          class="text-h6 font-weight-bold text-center py-2"
           v-text="headerTitle"
         />
-        <div class="caption text-center pb-2" v-text="headerSubTitle" />
       </v-sheet>
       <div class="mt-2">
         <WorldSummaryItem
@@ -76,7 +75,6 @@ export default Vue.extend({
   data() {
     return {
       headerTitle: 'Số liệu Covid-19 trên thế giới',
-      headerSubTitle: `Cập nhật ${'3 giờ'} trước`,
       bodyTitle: 'Kể từ khi dịch bùng phát từ đầu 2020 đến nay',
     };
   },
