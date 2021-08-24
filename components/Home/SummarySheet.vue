@@ -40,17 +40,17 @@
             :show-daily-value="true"
             :color="theme.default.warning"
             :sub-color="theme.default.warningSecondary"
-            :title="'Ca nhiễm mới'"
-            :total-value="100000"
-            :daily-value="2000"
+            :title="'Ca nhiễm'"
+            :total-value="summary.data.confirmed"
+            :daily-value="summary.data.confirmed - summary.data.lastConfirmed"
           />
           <SumaryItem
             :show-daily-value="true"
             :color="theme.default.success"
             :sub-color="theme.default.successSecondary"
             :title="'Hồi phục'"
-            :total-value="100000"
-            :daily-value="2000"
+            :total-value="summary.data.recovered"
+            :daily-value="summary.data.recovered - summary.data.lastRecovered"
           />
         </v-row>
         <v-row>
@@ -59,16 +59,15 @@
             :color="theme.default.danger"
             :sub-color="theme.default.dangerSecondary"
             :title="'Tử vong'"
-            :total-value="100000"
-            :daily-value="2000"
+            :total-value="summary.data.deaths"
+            :daily-value="summary.data.deaths - summary.data.lastDeaths"
           />
           <SumaryItem
             :show-daily-value="false"
             :color="theme.default.info"
             :sub-color="theme.default.infoSecondary"
             :title="'Đang chữa trị'"
-            :total-value="100000"
-            :daily-value="2000"
+            :total-value="summary.data.curing"
           />
         </v-row>
       </div>
@@ -99,6 +98,9 @@ export default Vue.extend({
     },
     theme() {
       return theme;
+    },
+    summary() {
+      return this.$store.state.home.summary;
     },
   },
 });

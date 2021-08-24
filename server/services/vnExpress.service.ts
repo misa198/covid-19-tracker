@@ -5,9 +5,9 @@ import { formatVnExpressData } from '../utils/formatApiData';
 const getVietnamSummaryVnExpress = async () => {
   const body = await axios.get(covidVnExpressApiUrl);
   const parsedData = formatVnExpressData(body.data as string);
-  const dataArray = parsedData.filter((item) => item.confirmed);
-  const today = dataArray.reverse()[0];
-  const yesterday = dataArray.reverse()[1];
+  const dataArray = parsedData.filter((item) => item.confirmed).reverse();
+  const today = dataArray[0];
+  const yesterday = dataArray[1];
   return {
     confirmed: today.confirmed,
     lastConfirmed: yesterday.confirmed,
@@ -15,6 +15,8 @@ const getVietnamSummaryVnExpress = async () => {
     lastDeaths: yesterday.deaths,
     recovered: today.recovered,
     lastRecovered: yesterday.recovered,
+    curing: today.curing,
+    lastCuring: yesterday.curing,
   };
 };
 
