@@ -24,7 +24,8 @@
         <div class="text-subtitle-1 font-weight-bold text-center mb-4">
           Dữ liệu từ
           <a href="https://vnexpress.net/" target="_blank">VnExpress</a>,
-          <a href="https://zingnews.vn/" target="_blank">Zing News</a>
+          <a href="https://moh.gov.vn/" target="_blank">Bộ Y Tế</a>,
+          <a href="https://kompa.ai/" target="_blank">Kompa</a>
         </div>
         <div class="text-subtitle-1 font-weight-bold text-center">
           <a href="https://github.com/" target="_blank">Github repository</a>
