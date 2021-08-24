@@ -1,7 +1,7 @@
 <template>
   <div
     :style="{
-      maxWidth: '750px',
+      maxWidth: '920px',
       margin: 'auto',
     }"
   >

@@ -10,6 +10,7 @@
   >
     <div class="text-h6 font-weight-bold text-center" v-text="label" />
     <apexchart
+      class="mb-4"
       width="100%"
       type="area"
       :options="{
@@ -26,6 +27,25 @@
         { name: 'Hồi phục', data: data.recovered },
       ]"
     />
+    <v-row class="mb-2 px-4">
+      <v-col
+        v-for="(range, index) in ranges"
+        :key="index"
+        md="3"
+        cols="6"
+        class="d-flex justify-center"
+      >
+        <v-btn
+          width="100%"
+          dark
+          light
+          :outlined="selectedRange.value !== range.value"
+          :color="theme.default.danger"
+          @click="selectRange(index)"
+          >{{ range.name }}</v-btn
+        >
+      </v-col>
+    </v-row>
   </v-sheet>
 </template>
 
@@ -33,6 +53,18 @@
 import Vue from 'vue';
 import { TrendingLineCasesData } from '~/store/home';
 import { theme } from '~/themes';
+
+interface Range {
+  name: string;
+  value: number;
+}
+
+const ranges: Range[] = [
+  { name: '1 tháng', value: 30 },
+  { name: '2 tháng', value: 60 },
+  { name: '3 tháng', value: 90 },
+  { name: '6 tháng', value: 180 },
+];
 
 export default Vue.extend({
   props: {
@@ -44,6 +76,8 @@ export default Vue.extend({
   data() {
     return {
       label: 'Diễn biến dịch Covid-19 tại Việt Nam',
+      ranges,
+      selectedRange: ranges[0],
     };
   },
   computed: {
@@ -64,10 +98,18 @@ export default Vue.extend({
         deaths.push(item.deaths);
       });
       return {
-        dates: dates.slice(Math.max(dates.length - 100, 1)),
-        confirmed: confirmed.slice(Math.max(confirmed.length - 100, 1)),
-        recovered: recovered.slice(Math.max(recovered.length - 100, 1)),
-        deaths: deaths.slice(Math.max(deaths.length - 100, 1)),
+        dates: dates.slice(
+          Math.max(dates.length - this.$data.selectedRange.value, 1)
+        ),
+        confirmed: confirmed.slice(
+          Math.max(confirmed.length - this.$data.selectedRange.value, 1)
+        ),
+        recovered: recovered.slice(
+          Math.max(recovered.length - this.$data.selectedRange.value, 1)
+        ),
+        deaths: deaths.slice(
+          Math.max(deaths.length - this.$data.selectedRange.value, 1)
+        ),
       };
     },
     options() {
@@ -94,6 +136,11 @@ export default Vue.extend({
     },
     theme() {
       return theme;
+    },
+  },
+  methods: {
+    selectRange(index: number) {
+      this.$data.selectedRange = ranges[index];
     },
   },
 });
