@@ -45,6 +45,9 @@ export default Vue.extend({
     return {
       label: 'Diễn biến dịch Covid-19 tại Việt Nam',
       options: {
+        theme: {
+          mode: (this.$store as any).state.common.darkMode ? 'dark' : 'light',
+        },
         dataLabels: {
           enabled: false,
         },

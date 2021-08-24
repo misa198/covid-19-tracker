@@ -39,6 +39,9 @@ export default Vue.extend({
   data() {
     return {
       options: {
+        theme: {
+          mode: (this.$store as any).state.common.darkMode ? 'dark' : 'light',
+        },
         colors: [theme.default.successSecondary, theme.default.success],
         chart: {
           id: 'chart',

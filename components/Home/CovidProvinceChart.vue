@@ -45,6 +45,9 @@ export default Vue.extend({
     return {
       label: 'Tỉnh thành có nhiều ca nhiễm nhất',
       options: {
+        theme: {
+          mode: (this.$store as any).state.common.darkMode ? 'dark' : 'light',
+        },
         dataLabels: {
           enabled: true,
         },
@@ -87,14 +90,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style lang="scss">
-.covid-chart.theme--dark {
-  .apexcharts-legend-text {
-    color: #fff !important;
-  }
-  .apexcharts-tooltip {
-    color: #000 !important;
-  }
-}
-</style>

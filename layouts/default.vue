@@ -44,4 +44,17 @@ export default Vue.extend({
 a {
   text-decoration: none;
 }
+
+.apexcharts-svg {
+  background: transparent !important;
+}
+.apexcharts-tooltip.apexcharts-theme-dark {
+  .apexcharts-tooltip-title {
+    background: white !important;
+    border-bottom: 1px solid rgb(214, 214, 214) !important;
+  }
+
+  background: white !important;
+  color: #000 !important;
+}
 </style>
