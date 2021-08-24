@@ -6,6 +6,15 @@ import {
   KompaVietnamCasesResponse,
 } from '~/services/kompa.service';
 
+export interface VietnamSummaryCasesData {
+  confirmed: number;
+  lastConfirmed: number;
+  deaths: number;
+  lastDeaths: number;
+  recovered: number;
+  lastRecovered: number;
+}
+
 export interface TrendingLineCasesData {
   date: string;
   confirmed: number;
@@ -30,6 +39,11 @@ export interface HomeState {
   provinceCases: {
     data: ProvinceCasesData[];
   };
+  summary: {
+    data: VietnamSummaryCasesData;
+    loading: boolean;
+    error: boolean;
+  };
 }
 
 export const state: () => HomeState = () => ({
@@ -40,6 +54,18 @@ export const state: () => HomeState = () => ({
   },
   provinceCases: {
     data: [],
+  },
+  summary: {
+    data: {
+      confirmed: 0,
+      lastConfirmed: 0,
+      deaths: 0,
+      lastDeaths: 0,
+      recovered: 0,
+      lastRecovered: 0,
+    },
+    loading: false,
+    error: false,
   },
 });
 
