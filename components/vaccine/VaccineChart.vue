@@ -86,4 +86,9 @@ export default Vue.extend({
     color: #000 !important;
   }
 }
+
+.v-data-footer__select {
+  color: transparent;
+  user-select: none;
+}
 </style>
