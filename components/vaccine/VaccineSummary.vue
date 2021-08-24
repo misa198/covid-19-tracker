@@ -8,17 +8,25 @@
     "
   >
     <v-row>
-      <v-col :span="4" class="pa-4" :style="{ color: theme.default.success }">
+      <v-col
+        xs="12"
+        sm="12"
+        md="4"
+        cols="12"
+        :span="4"
+        class="pa-4"
+        :style="{ color: theme.default.success }"
+      >
         <div class="text-subtitle-2 text-center mb-2">
           Tổng số người đã tiêm
         </div>
         <div class="text-h4 text-center font-weight-bold">10.000.000</div>
       </v-col>
-      <v-col :span="4" class="pa-4">
+      <v-col xs="12" sm="6" md="4" cols="12" :span="4" class="pa-4">
         <div class="text-subtitle-2 text-center mb-2">Đã tiêm 1 mũi</div>
         <div class="text-h4 text-center font-weight-bold">10.000.000</div>
       </v-col>
-      <v-col :span="4" class="pa-4">
+      <v-col xs="12" sm="6" md="4" cols="12" :span="4" class="pa-4">
         <div class="text-subtitle-2 text-center mb-2">Đã tiêm 2 mũi</div>
         <div class="text-h4 text-center font-weight-bold">10.000.000</div>
       </v-col>
