@@ -79,7 +79,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      label: 'Diễn biến dịch Covid-19 tại Việt Nam',
+      label: 'Diễn biến dịch tại Việt Nam',
       ranges,
       selectedRange: ranges[0],
     };

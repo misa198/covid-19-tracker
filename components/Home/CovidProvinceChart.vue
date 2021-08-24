@@ -43,7 +43,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      label: 'Tỉnh thành có nhiều ca nhiễm nhất',
+      label: 'Tỉnh có nhiều ca nhiễm nhất',
     };
   },
   computed: {
