@@ -42,6 +42,7 @@
             :title="'Ca nhiễm'"
             :total-value="summary.data.confirmed"
             :daily-value="summary.data.confirmed - summary.data.lastConfirmed"
+            :loading="summary.loading"
           />
           <SumaryItem
             :show-daily-value="true"
@@ -50,6 +51,7 @@
             :title="'Hồi phục'"
             :total-value="summary.data.recovered"
             :daily-value="summary.data.recovered - summary.data.lastRecovered"
+            :loading="summary.loading"
           />
         </v-row>
         <v-row>
@@ -60,6 +62,7 @@
             :title="'Tử vong'"
             :total-value="summary.data.deaths"
             :daily-value="summary.data.deaths - summary.data.lastDeaths"
+            :loading="summary.loading"
           />
           <SumaryItem
             :show-daily-value="false"
@@ -67,6 +70,7 @@
             :sub-color="theme.default.infoSecondary"
             :title="'Đang chữa trị'"
             :total-value="summary.data.curing"
+            :loading="summary.loading"
           />
         </v-row>
       </div>
