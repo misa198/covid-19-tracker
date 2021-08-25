@@ -2,15 +2,26 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: 'Covid-19 Tracker',
-    title: 'Covid-19 Tracker',
     htmlAttrs: {
       lang: 'vi',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content:
+          'https://res.cloudinary.com/dumfvnj9f/image/upload/v1629902332/covid-19-tracker/covid-19-tracker_bdrjyv.png',
+      },
+      { hid: 'og:og:type', property: 'og:type', content: 'article' },
+      { hid: 'og:url', property: 'og:url', content: process.env.APP_URL },
+      {
+        hid: 'fb:app_id',
+        property: 'fb:app_id',
+        content: process.env.FB_APP_ID,
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },

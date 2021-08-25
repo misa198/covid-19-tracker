@@ -25,17 +25,33 @@ export default Vue.extend({
   },
   data() {
     return {
-      title: "Tin tức mới nhất | Covid-19 Tracking"
-    }
+      title: 'Tin tức mới nhất | Covid-19 Tracking',
+      description: 'Tin tức mới nhất về dịch bệnh Covid-19',
+    };
   },
   head() {
     return {
       title: this.$data.title,
       meta: [
         {
+          hid: 'title',
+          name: 'title',
+          content: this.$data.title,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.$data.title,
+        },
+        {
           hid: 'description',
           name: 'description',
-          content: 'Tin tức mới nhất về dịch bệnh Covid-19',
+          content: this.$data.description,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.$data.description,
         },
       ],
     };

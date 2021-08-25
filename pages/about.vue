@@ -58,6 +58,7 @@ export default Vue.extend({
   data() {
     return {
       title: 'Thông tin | Covid-19 Tracker',
+      description: 'Về Covid-19 Tracking',
     };
   },
   head() {
@@ -65,9 +66,24 @@ export default Vue.extend({
       title: this.$data.title,
       meta: [
         {
+          hid: 'title',
+          name: 'title',
+          content: this.$data.title,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.$data.title,
+        },
+        {
           hid: 'description',
           name: 'description',
-          content: 'Về Covid-19 Tracking',
+          content: this.$data.description,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.$data.description,
         },
       ],
     };

@@ -18,6 +18,7 @@ export default Vue.extend({
   data() {
     return {
       title: 'Dịch bệnh trên thế giới | Covid-19 Tracking',
+      description: 'Thông tin diễn biến dịch bệnh Covid-19 trên thế giới',
     };
   },
   head() {
@@ -25,9 +26,24 @@ export default Vue.extend({
       title: this.$data.title,
       meta: [
         {
+          hid: 'title',
+          name: 'title',
+          content: this.$data.title,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.$data.title,
+        },
+        {
           hid: 'description',
           name: 'description',
-          content: 'Thông tin diễn biến dịch bệnh Covid-19 trên thế giới',
+          content: this.$data.description,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.$data.description,
         },
       ],
     };
