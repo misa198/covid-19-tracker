@@ -9,24 +9,12 @@
       elevation="2"
       class="pa-3 pb-0"
     >
-      <NewsListItem />
-      <NewsListItem />
-      <NewsListItem />
-      <NewsListItem />
-      <NewsListItem />
-      <NewsListItem />
-      <NewsListItem />
-      <NewsListItem />
-      <NewsListItem />
+      <NewsListItem
+        v-for="newsItem in newsItems"
+        :key="newsItem.id"
+        :news="newsItem"
+      />
     </v-sheet>
-    <div class="d-flex align-center justify-center mt-8">
-      <v-btn
-        :color="
-          darkMode ? theme.dark.headerBackground : theme.light.headerBackground
-        "
-        >Xem thêm</v-btn
-      >
-    </div>
   </div>
 </template>
 <script lang="ts">
