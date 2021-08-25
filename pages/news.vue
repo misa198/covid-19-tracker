@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <HomeContainer>
+    <HomeContainer v-if="news.data.length > 0">
       <FirstNews />
       <div class="mt-6">
         <NewsList />
@@ -19,6 +19,11 @@ export default Vue.extend({
     HomeContainer,
     FirstNews,
     NewsList,
+  },
+  computed: {
+    news() {
+      return this.$store.state.news;
+    },
   },
   created() {
     this.$store.dispatch('news/fetchKompaNews');

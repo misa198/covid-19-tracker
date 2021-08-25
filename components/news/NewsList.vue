@@ -40,10 +40,14 @@ export default Vue.extend({
   },
   computed: {
     darkMode() {
-      return (this.$store as any).state.common.darkMode;
+      return this.$store.state.common.darkMode;
     },
     theme() {
       return theme;
+    },
+    newsItems() {
+      const news = [...this.$store.state.news.data];
+      return news.slice(1, news.length);
     },
   },
 });

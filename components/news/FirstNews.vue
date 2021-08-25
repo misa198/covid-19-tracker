@@ -14,7 +14,7 @@
         :style="{
           width: '100%',
           paddingBottom: '60%',
-          backgroundImage: `url(https://i-vnexpress.vnecdn.net/2021/08/24/phan-van-mai-7160-1629778509.jpg)`,
+          backgroundImage: `url(${firstNews.picture})`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
@@ -24,20 +24,17 @@
     </v-row>
     <v-row class="px-1">
       <v-col cols="12" class="pa-0 mt-3">
-        <div class="text-h5 font-weight-bold">
-          Ông Phan Văn Mãi làm Chủ tịch TP HCM
-        </div>
+        <div class="text-h5 font-weight-bold">{{ firstNews.title }}</div>
       </v-col>
       <v-col cols="12" class="pa-0 mt-1">
         <div class="text-subtitle-1">
-          Tân Chủ tịch UBND TP HCM đắc cử với tỷ lệ phiếu 87/89 đại biểu có mặt,
-          sau khi được Chủ tịch HĐND thành phố Nguyễn Thị Lệ giới thiệu tại kỳ
-          họp thứ 2, HĐND TP HCM khóa X. Việc miễn nhiệm ông Phong diễn ra trước
-          đó với tỷ lệ 100% đại biểu tán thành
+          {{ firstNews.content }}
         </div>
       </v-col>
       <v-col cols="12" class="pa-0 mt-2">
-        <div class="text-subtitle-2">40 phút trước</div>
+        <div class="text-subtitle-2">
+          Theo <i> {{ firstNews.siteName }}</i>
+        </div>
       </v-col>
     </v-row>
   </v-sheet>
@@ -48,10 +45,13 @@ import { theme } from '~/themes';
 export default Vue.extend({
   computed: {
     darkMode() {
-      return (this.$store as any).state.common.darkMode;
+      return this.$store.state.common.darkMode;
     },
     theme() {
       return theme;
+    },
+    firstNews() {
+      return this.$store.state.news.data[0];
     },
   },
 });
