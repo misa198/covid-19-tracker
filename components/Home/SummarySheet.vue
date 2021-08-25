@@ -79,9 +79,9 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import HomeContainer from '~/components/common/HomeContainer.vue';
-import SumaryItem from '~/components/home/SummaryItem.vue';
-import { theme } from '~/themes';
+import HomeContainer from '@/components/common/HomeContainer.vue';
+import SumaryItem from '@/components/home/SummaryItem.vue';
+import { theme } from '@/themes';
 
 export default Vue.extend({
   components: {

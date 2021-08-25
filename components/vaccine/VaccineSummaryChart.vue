@@ -18,8 +18,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { AppVietnamVaccineStatistic } from '~/services/app.service';
-import { theme } from '~/themes';
+import { AppVietnamVaccineStatistic } from '@/services/app.service';
+import { theme } from '@/themes';
 
 export default Vue.extend({
   computed: {

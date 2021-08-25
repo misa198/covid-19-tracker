@@ -63,9 +63,9 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import HomeContainer from '~/components/common/HomeContainer.vue';
-import WorldSummaryItem from '~/components/world/WorldSummaryItem.vue';
-import { theme } from '~/themes';
+import HomeContainer from '@/components/common/HomeContainer.vue';
+import WorldSummaryItem from '@/components/world/WorldSummaryItem.vue';
+import { theme } from '@/themes';
 
 export default Vue.extend({
   components: {

@@ -14,10 +14,10 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import { theme } from '~/themes';
-import CovidChart from '~/components/home/CovidChart.vue';
-import CovidProvinceChart from '~/components/home/CovidProvinceChart.vue';
-import HomeContainer from '~/components/common/HomeContainer.vue';
+import { theme } from '@/themes';
+import CovidChart from '@/components/home/CovidChart.vue';
+import CovidProvinceChart from '@/components/home/CovidProvinceChart.vue';
+import HomeContainer from '@/components/common/HomeContainer.vue';
 
 export default Vue.extend({
   components: {

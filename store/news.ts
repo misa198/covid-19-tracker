@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import { ActionContext } from 'vuex/types';
 import { RootState } from '.';
-import { fetchKompaNews, KompaNewsResponse } from '~/services/kompa.service';
+import { fetchKompaNews, KompaNewsResponse } from '@/services/kompa.service';
 
 interface NewsStateData {
   content: string;

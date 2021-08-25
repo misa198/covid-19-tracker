@@ -19,7 +19,7 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import { theme } from '~/themes';
+import { theme } from '@/themes';
 import NewsListItem from '@/components/news/NewsListItem.vue';
 
 export default Vue.extend({

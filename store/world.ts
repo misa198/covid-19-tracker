@@ -4,7 +4,7 @@ import { RootState } from '.';
 import {
   fetchKompaWorldwideCases,
   KompaWorldwideCasesResponse,
-} from '~/services/kompa.service';
+} from '@/services/kompa.service';
 
 interface WorldStateData {
   totalDeaths: number;

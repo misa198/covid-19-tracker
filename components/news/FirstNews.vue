@@ -43,7 +43,7 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import { theme } from '~/themes';
+import { theme } from '@/themes';
 export default Vue.extend({
   computed: {
     darkMode() {

@@ -3,11 +3,11 @@ import { ActionContext } from 'vuex/types';
 import {
   AppVietnamSummaryResponse,
   fetchAppVietNamSummary,
-} from '~/services/app.service';
+} from '@/services/app.service';
 import {
   fetchKompaVietNamCases,
   KompaVietnamCasesResponse,
-} from '~/services/kompa.service';
+} from '@/services/kompa.service';
 import { RootState } from '.';
 
 export interface VietnamSummaryCasesData {

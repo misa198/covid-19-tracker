@@ -5,7 +5,7 @@ import {
   AppVietnamVaccineStatistic,
   AppVietnamVaccineStatisticResponse,
   fetchAppVietNamVaccineStatistic,
-} from '~/services/app.service';
+} from '@/services/app.service';
 
 interface VaccineState {
   statistic: {

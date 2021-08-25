@@ -31,8 +31,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { ProvinceCasesData } from '~/store/home';
-import { theme } from '~/themes';
+import { ProvinceCasesData } from '@/store/home';
+import { theme } from '@/themes';
 
 export default Vue.extend({
   props: {

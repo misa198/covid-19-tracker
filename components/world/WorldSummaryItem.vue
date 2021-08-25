@@ -21,7 +21,7 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import { theme } from '~/themes';
+import { theme } from '@/themes';
 import { formatNumber } from '@/utils/formatNumber';
 
 export default Vue.extend({

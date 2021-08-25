@@ -13,7 +13,7 @@
         elevation="2"
         class="px-3 py-8 d-flex flex-column align-center"
       >
-        <img src="~/assets/logo.png" width="200px" alt="Logo" class="mb-8" />
+        <img src="@/assets/logo.png" width="200px" alt="Logo" class="mb-8" />
         <div class="text-h4 font-weight-bold text-center mb-6">
           Covid 19 Tracker
         </div>
@@ -48,8 +48,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { theme } from '~/themes';
-import HomeContainer from '~/components/common/HomeContainer.vue';
+import { theme } from '@/themes';
+import HomeContainer from '@/components/common/HomeContainer.vue';
 
 export default Vue.extend({
   components: {

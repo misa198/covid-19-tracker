@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { appApiUrl, kompaApiUrl } from '~/constants/config';
+import { appApiUrl, kompaApiUrl } from '@/constants/config';
 
 export const axiosKompaClient = axios.create({
   baseURL: kompaApiUrl,

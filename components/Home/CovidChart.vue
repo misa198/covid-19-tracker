@@ -55,8 +55,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { TrendingLineCasesData } from '~/store/home';
-import { theme } from '~/themes';
+import { TrendingLineCasesData } from '@/store/home';
+import { theme } from '@/themes';
 
 interface Range {
   name: string;

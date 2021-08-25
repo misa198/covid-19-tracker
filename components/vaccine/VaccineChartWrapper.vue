@@ -12,9 +12,9 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import VaccineDayChart from '~/components/vaccine/VaccineDayChart.vue';
-import VaccineSummaryChart from '~/components/vaccine/VaccineSummaryChart.vue';
-import HomeContainer from '~/components/common/HomeContainer.vue';
+import VaccineDayChart from '@/components/vaccine/VaccineDayChart.vue';
+import VaccineSummaryChart from '@/components/vaccine/VaccineSummaryChart.vue';
+import HomeContainer from '@/components/common/HomeContainer.vue';
 
 export default Vue.extend({
   components: {

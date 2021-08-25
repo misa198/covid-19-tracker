@@ -74,8 +74,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { theme } from '~/themes';
-import { formatNumber } from '~/utils/formatNumber';
+import { theme } from '@/themes';
+import { formatNumber } from '@/utils/formatNumber';
 
 export default Vue.extend({
   computed: {
