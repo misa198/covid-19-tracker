@@ -4,6 +4,7 @@ config();
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
+import herokuAwake from 'heroku-awake';
 import vietnamRoute from './routers/vietnam.route';
 import vaccineRoute from './routers/vaccine.route';
 
@@ -31,6 +32,7 @@ async function start() {
   app.use(nuxt.render);
 
   app.listen(port, () => {
+    herokuAwake('https://ncov-vn.herokuapp.com');
     // eslint-disable-next-line no-console
     console.log('Server ready on port ' + port);
   });
