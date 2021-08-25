@@ -9,6 +9,8 @@ export const theme = {
     dangerSecondary: '#FFCCBC',
     info: '#455A64',
     infoSecondary: '#CFD8DC',
+    indigo: '#3F51B5',
+    lime: '#CDDC39',
   },
   light: {
     text: '#000',

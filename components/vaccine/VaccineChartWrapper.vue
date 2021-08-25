@@ -2,7 +2,7 @@
   <HomeContainer>
     <v-row class="my-4">
       <v-col md="6" sm="12" cols="12">
-        <VaccineChart
+        <VaccineDayChart
           :label="'Tổng người tiêm vaccine'"
           :categories="[1, 2, 3, 4, 5]"
           :data="[1, 2, 3, 4, 6]"
@@ -10,7 +10,7 @@
         />
       </v-col>
       <v-col md="6" sm="12" cols="12">
-        <VaccineChart
+        <VaccineDayChart
           :label="'Lượng vaccine theo ngày'"
           :categories="[1, 2, 3, 4, 5]"
           :data="[1, 2, 3, 4, 6]"
@@ -22,12 +22,12 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import VaccineChart from '~/components/vaccine/VaccineChart.vue';
+import VaccineDayChart from '~/components/vaccine/VaccineDayChart.vue';
 import HomeContainer from '~/components/common/HomeContainer.vue';
 
 export default Vue.extend({
   components: {
-    VaccineChart,
+    VaccineDayChart,
     HomeContainer,
   },
 });

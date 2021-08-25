@@ -18,17 +18,8 @@ interface VaccineState {
 export const state: () => VaccineState = () => ({
   statistic: {
     data: {
-      dayInjection: {
-        date: '',
-        first: 0,
-        second: 0,
-        average: 0,
-      },
-      summaryInjection: {
-        date: '',
-        first: 0,
-        second: 0,
-      },
+      dayInjection: [],
+      summaryInjection: [],
       firstTotal: 0,
       firstRatio: 0,
       secondTotal: 0,

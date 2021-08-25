@@ -22,12 +22,12 @@ export interface AppVietnamVaccineStatistic {
     first: number;
     second: number;
     average: number;
-  };
+  }[];
   summaryInjection: {
     date: string;
     first: number;
     second: number;
-  };
+  }[];
   firstTotal: number;
   firstRatio: number;
   secondTotal: number;
