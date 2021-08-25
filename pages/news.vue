@@ -6,6 +6,9 @@
         <NewsList />
       </div>
     </HomeContainer>
+    <div v-else class="d-flex justify-center py-8">
+      <v-progress-circular indeterminate color="primary"></v-progress-circular>
+    </div>
   </v-container>
 </template>
 <script lang="ts">
