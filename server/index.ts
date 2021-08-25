@@ -3,6 +3,7 @@ config();
 
 import express from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
 import vietnamRoute from './routers/vietnam.route';
 import vaccineRoute from './routers/vaccine.route';
 
@@ -20,6 +21,12 @@ async function start() {
   if (isDev) {
     build(nuxt);
     app.use(cors());
+  } else {
+    app.use(
+      helmet({
+        contentSecurityPolicy: false,
+      })
+    );
   }
   app.use(nuxt.render);
 
