@@ -14,7 +14,7 @@
       darkMode ? theme.dark.headerBackground : theme.light.headerBackground
     "
   >
-    <v-progress-circular color="primary" indeterminate></v-progress-circular>
+    <v-progress-circular indeterminate color="primary"></v-progress-circular>
   </v-sheet>
 </template>
 <script>
