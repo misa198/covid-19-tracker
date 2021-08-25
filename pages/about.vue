@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="text-subtitle-1 font-weight-bold text-center">
-          <a href="https://github.com/" target="_blank">
+          <a href="https://github.com/misa198/covid-19-tracker" target="_blank">
             <v-icon large>mdi-github</v-icon>
           </a>
         </div>
