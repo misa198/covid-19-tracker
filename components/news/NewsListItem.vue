@@ -29,7 +29,7 @@
               textOverflow: 'ellipsis',
             }"
           >
-            {{ news.content }}
+            {{ news.content }}...
           </div>
           <div class="text-subtitle-2 font-weight-bold mt-4">
             Theo <i> {{ news.siteName }}</i>

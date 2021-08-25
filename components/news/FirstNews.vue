@@ -28,9 +28,7 @@
           <div class="text-h5 font-weight-bold">{{ firstNews.title }}</div>
         </v-col>
         <v-col cols="12" class="pa-0 mt-1">
-          <div class="text-subtitle-1">
-            {{ firstNews.content }}
-          </div>
+          <div class="text-subtitle-1">{{ firstNews.content }}...</div>
         </v-col>
         <v-col cols="12" class="pa-0 mt-2">
           <div class="text-subtitle-2">
