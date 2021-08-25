@@ -10,7 +10,7 @@
   >
     <div
       class="text-h6 font-weight-bold text-center"
-      v-text="'Mũi tiêm theo ngày'"
+      v-text="'Số người đã tiêm'"
     />
     <apexchart width="100%" :options="data.options" :series="data.series" />
   </v-sheet>
@@ -26,17 +26,15 @@ export default Vue.extend({
     data() {
       const statisticData = this.$store.state.vaccine.statistic
         .data as AppVietnamVaccineStatistic;
-      const selected = [...statisticData.dayInjection];
+      const selected = [...statisticData.summaryInjection];
       const dates: string[] = [];
       const first: number[] = [];
       const second: number[] = [];
-      const average: number[] = [];
 
       selected.forEach((item) => {
         dates.push(item.date);
         first.push(item.first);
         second.push(item.second);
-        average.push(item.average);
       });
       const sm = (this as any).$vuetify.breakpoint.smAndDown;
 
@@ -48,11 +46,7 @@ export default Vue.extend({
           dataLabels: {
             enabled: false,
           },
-          colors: [
-            theme.default.success,
-            theme.default.indigo,
-            theme.default.lime,
-          ],
+          colors: [theme.default.success, theme.default.indigo],
           chart: {
             id: 'chart',
             zoom: false,
@@ -73,7 +67,6 @@ export default Vue.extend({
         series: [
           { name: 'Tiêm mũi 1', data: first, type: 'area' },
           { name: 'Tiêm mũi 2', data: second, type: 'area' },
-          { name: 'Trung bình 7 ngày', data: average, type: 'line' },
         ],
       };
     },
