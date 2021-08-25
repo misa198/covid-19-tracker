@@ -36,7 +36,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    '@nuxtjs/google-analytics',
   ],
 
   vuetify: {
@@ -72,5 +72,14 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     vendor: ['vue-apexchart'],
+  },
+
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALYTICS_ID,
+  },
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS_ID,
+    },
   },
 };
