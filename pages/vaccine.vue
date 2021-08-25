@@ -25,7 +25,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      title: 'Thông tin Vaccine | Covid-19 Tracking',
+      title: 'Thông tin Vaccine | Covid-19 Tracker',
       description: 'Thông tin Vaccine Covid-19 tại Việt Nam',
     };
   },

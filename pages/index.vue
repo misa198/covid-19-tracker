@@ -27,7 +27,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      title: 'Covid-19 Tracking',
+      title: 'Covid-19 Tracker',
       description: 'Theo dõi tình hình dịch bệnh Covid-19 tại Việt Nam',
     };
   },

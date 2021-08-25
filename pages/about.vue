@@ -58,7 +58,7 @@ export default Vue.extend({
   data() {
     return {
       title: 'Thông tin | Covid-19 Tracker',
-      description: 'Về Covid-19 Tracking',
+      description: 'Về Covid-19 Tracker',
     };
   },
   head() {

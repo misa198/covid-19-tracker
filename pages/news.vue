@@ -25,7 +25,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      title: 'Tin tức mới nhất | Covid-19 Tracking',
+      title: 'Tin tức mới nhất | Covid-19 Tracker',
       description: 'Tin tức mới nhất về dịch bệnh Covid-19',
     };
   },

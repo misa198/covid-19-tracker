@@ -17,7 +17,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      title: 'Dịch bệnh trên thế giới | Covid-19 Tracking',
+      title: 'Dịch bệnh trên thế giới | Covid-19 Tracker',
       description: 'Thông tin diễn biến dịch bệnh Covid-19 trên thế giới',
     };
   },
