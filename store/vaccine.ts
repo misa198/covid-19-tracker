@@ -49,7 +49,7 @@ export const mutations = {
     payload: AppVietnamVaccineStatisticResponse
   ) {
     Vue.set(state.statistic, 'loading', false);
-    Vue.set(state.statistic, 'data', payload);
+    Vue.set(state.statistic, 'data', payload.data);
   },
   fetchVaccineDataRejected(state: VaccineState) {
     Vue.set(state.statistic, 'loading', false);

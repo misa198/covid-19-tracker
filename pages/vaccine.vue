@@ -23,5 +23,8 @@ export default Vue.extend({
     VaccineSumary,
     VaccineChartWrapper,
   },
+  created() {
+    this.$store.dispatch('vaccine/fetchAppVietNamVaccineStatistic');
+  },
 });
 </script>
