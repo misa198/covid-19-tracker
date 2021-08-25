@@ -18,17 +18,28 @@
           Covid 19 Tracker
         </div>
         <div class="text-subtitle-1 font-weight-bold text-center mb-2">
-          Cung cấp bởi
-          <a href="https://misa198.vercel.app" target="_blank">Thành Vũ</a>
+          <div>Cung cấp bởi</div>
+          <div>
+            <a href="https://misa198.vercel.app" target="_blank">Thành Vũ</a>
+          </div>
         </div>
-        <div class="text-subtitle-1 font-weight-bold text-center mb-4">
-          Dữ liệu từ
-          <a href="https://vnexpress.net/" target="_blank">VnExpress</a>,
-          <a href="https://moh.gov.vn/" target="_blank">Bộ Y Tế</a>,
-          <a href="https://kompa.ai/" target="_blank">Kompa</a>
+        <div class="text-subtitle-1 font-weight-bold text-center mb-5">
+          <div>Dữ liệu từ</div>
+          <div>
+            <div>
+              <a href="https://moh.gov.vn/" target="_blank">Bộ Y Tế,</a>
+              <a href="https://kompa.ai/" target="_blank">Kompa</a>
+            </div>
+            <div>
+              <a href="https://vnexpress.net/" target="_blank">VnExpress,</a>
+              <a href="https://zingnews.vn/" target="_blank">Zing News</a>
+            </div>
+          </div>
         </div>
         <div class="text-subtitle-1 font-weight-bold text-center">
-          <a href="https://github.com/" target="_blank">Github repository</a>
+          <a href="https://github.com/" target="_blank">
+            <v-icon large>mdi-github</v-icon>
+          </a>
         </div>
       </v-sheet>
     </HomeContainer>
