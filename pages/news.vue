@@ -23,6 +23,23 @@ export default Vue.extend({
     FirstNews,
     NewsList,
   },
+  data() {
+    return {
+      title: "Tin tức mới nhất | Covid-19 Tracking"
+    }
+  },
+  head() {
+    return {
+      title: this.$data.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Tin tức mới nhất về dịch bệnh Covid-19',
+        },
+      ],
+    };
+  },
   computed: {
     news() {
       return this.$store.state.news;

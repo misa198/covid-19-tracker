@@ -23,6 +23,23 @@ export default Vue.extend({
     VaccineSumary,
     VaccineChartWrapper,
   },
+  data() {
+    return {
+      title: 'Thông tin Vaccine | Covid-19 Tracking',
+    };
+  },
+  head() {
+    return {
+      title: this.$data.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Thông tin Vaccine',
+        },
+      ],
+    };
+  },
   created() {
     this.$store.dispatch('vaccine/fetchAppVietNamVaccineStatistic');
   },

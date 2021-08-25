@@ -55,6 +55,23 @@ export default Vue.extend({
   components: {
     HomeContainer,
   },
+  data() {
+    return {
+      title: 'Thông tin | Covid-19 Tracker',
+    };
+  },
+  head() {
+    return {
+      title: this.$data.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Về Covid-19 Tracking',
+        },
+      ],
+    };
+  },
   computed: {
     darkMode() {
       return (this.$store as any).state.common.darkMode;

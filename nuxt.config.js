@@ -39,6 +39,10 @@ export default {
     '@nuxtjs/google-analytics',
   ],
 
+  loading: {
+    color: '#d84315',
+  },
+
   vuetify: {
     theme: {
       default: {

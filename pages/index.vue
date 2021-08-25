@@ -25,6 +25,23 @@ export default Vue.extend({
     CovidTable,
     HomeContainer,
   },
+  data() {
+    return {
+      title: 'Covid-19 Tracking',
+    };
+  },
+  head() {
+    return {
+      title: this.$data.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Theo dõi tình hình dịch bệnh Covid-19 tại Việt Nam',
+        },
+      ],
+    };
+  },
   created() {
     this.$store.dispatch('home/fetchVietnamTrendingLineCasesData');
     this.$store.dispatch('home/fetchVietnamSummaryCasesData');

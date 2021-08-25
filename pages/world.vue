@@ -15,6 +15,23 @@ export default Vue.extend({
     WorldSummary,
     HomeContainer,
   },
+  data() {
+    return {
+      title: 'Dịch bệnh trên thế giới | Covid-19 Tracking',
+    };
+  },
+  head() {
+    return {
+      title: this.$data.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Thông tin diễn biến dịch bệnh Covid-19 trên thế giới',
+        },
+      ],
+    };
+  },
   created() {
     this.$store.dispatch('world/fetchWorldwideCasesData');
   },
