@@ -7,7 +7,9 @@
       :color="
         darkMode ? theme.dark.headerBackground : theme.light.headerBackground
       "
+      :style="{ position: 'relative' }"
     >
+      <Loading v-if="summary.loading" />
       <v-sheet
         class="mx-auto"
         :color="
@@ -81,12 +83,14 @@
 import Vue from 'vue';
 import HomeContainer from '@/components/common/HomeContainer.vue';
 import SumaryItem from '@/components/home/SummaryItem.vue';
+import Loading from '@/components/common/Loading.vue';
 import { theme } from '@/themes';
 
 export default Vue.extend({
   components: {
     SumaryItem,
     HomeContainer,
+    Loading,
   },
   data() {
     return {

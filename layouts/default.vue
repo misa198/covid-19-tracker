@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Header />
+    <Header :style="{ zIndex: 100 }" />
     <v-main
       :style="{
         background: darkMode ? theme.dark.background : theme.light.background,
@@ -43,6 +43,10 @@ export default Vue.extend({
 <style lang="scss">
 a {
   text-decoration: none;
+}
+
+.v-overlay--active {
+  z-index: 99 !important;
 }
 
 .apexcharts-svg {

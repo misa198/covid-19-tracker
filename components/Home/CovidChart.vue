@@ -8,6 +8,7 @@
       darkMode ? theme.dark.headerBackground : theme.light.headerBackground
     "
   >
+    <Loading v-if="trendingsLineVietnamCases.loading" />
     <div class="text-h6 font-weight-bold text-center" v-text="label" />
     <apexchart
       class="mb-4"
@@ -55,6 +56,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Loading from '@/components/common/Loading.vue';
 import { TrendingLineCasesData } from '@/store/home';
 import { theme } from '@/themes';
 
@@ -71,6 +73,9 @@ const ranges: Range[] = [
 ];
 
 export default Vue.extend({
+  components: {
+    Loading,
+  },
   props: {
     type: {
       type: String,
@@ -86,11 +91,14 @@ export default Vue.extend({
   },
   computed: {
     darkMode() {
-      return (this.$store as any).state.common.darkMode;
+      return this.$store.state.common.darkMode;
+    },
+    trendingsLineVietnamCases() {
+      return this.$store.state.home.trendingLineCases;
     },
     data() {
-      const trendingsLineVietnamCases = (this.$store as any).state.home
-        .trendingLineCases.data;
+      const trendingsLineVietnamCases =
+        this.$store.state.home.trendingLineCases.data;
       const dates: string[] = [];
       const confirmed: number[] = [];
       const recovered: number[] = [];

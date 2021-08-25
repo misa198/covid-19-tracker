@@ -6,7 +6,9 @@
     :color="
       darkMode ? theme.dark.headerBackground : theme.light.headerBackground
     "
+    :style="{ position: 'relative' }"
   >
+    <Loading v-if="statistic.loading" />
     <v-row>
       <v-col
         xs="12"
@@ -74,10 +76,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Loading from '@/components/common/Loading.vue';
 import { theme } from '@/themes';
 import { formatNumber } from '@/utils/formatNumber';
 
 export default Vue.extend({
+  components: {
+    Loading,
+  },
   computed: {
     darkMode() {
       return this.$store.state.common.darkMode;

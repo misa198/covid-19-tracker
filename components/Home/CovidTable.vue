@@ -1,5 +1,6 @@
 <template>
-  <div class="covid-table">
+  <v-sheet class="covid-table" :style="{ position: 'relative' }">
+    <Loading v-if="trendingLineCases.loading" />
     <v-data-table
       :headers="headers"
       :items="provinceCasesState.data"
@@ -17,12 +18,17 @@
         </v-toolbar>
       </template>
     </v-data-table>
-  </div>
+  </v-sheet>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import Loading from '@/components/common/Loading.vue';
+
 export default Vue.extend({
+  components: {
+    Loading,
+  },
   data() {
     return {
       tableTitle: 'Tình hình dịch tại các tỉnh thành',
@@ -39,7 +45,10 @@ export default Vue.extend({
   },
   computed: {
     provinceCasesState() {
-      return (this.$store as any).state.home.provinceCases;
+      return this.$store.state.home.provinceCases;
+    },
+    trendingLineCases() {
+      return this.$store.state.home.trendingLineCases;
     },
   },
 });
