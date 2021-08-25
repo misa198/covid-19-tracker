@@ -61,4 +61,17 @@ a {
   background: white !important;
   color: #000 !important;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 2, 4, 0.2);
+  border-radius: 10px;
+}
 </style>
