@@ -75,3 +75,40 @@ export const fetchKompaWorldwideCases = async () => {
   };
   return await axiosKompaClient.post('/', JSON.stringify(query));
 };
+
+export interface KompaNewsResponse {
+  data: {
+    topTrueNews: {
+      content: string;
+      id: string;
+      picture: string;
+      publishedDate: string;
+      siteName: string;
+      title: string;
+      url: string;
+    };
+  };
+}
+
+export const fetchKompaNews = async () => {
+  const query = {
+    operationName: 'topTrueNews',
+    variables: {},
+    query: `
+      query topTrueNews {
+        topTrueNews {
+          id
+          type
+          title
+          content
+          url
+          siteName
+          publishedDate
+          author
+          picture
+        }
+      }
+      `,
+  };
+  return await axiosKompaClient.post('/', JSON.stringify(query));
+};

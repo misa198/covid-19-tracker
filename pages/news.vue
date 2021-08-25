@@ -20,5 +20,8 @@ export default Vue.extend({
     FirstNews,
     NewsList,
   },
+  created() {
+    this.$store.dispatch('news/fetchKompaNews');
+  },
 });
 </script>
