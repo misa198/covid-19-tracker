@@ -43,6 +43,10 @@ Web application to monitor the developments of the Covid-19 epidemic in Vietnam.
 - [VnExpress](https://vnexpress.net/)
 - [Zing News](https://zingnews.vn/)
 
+## Demo
+
+- [Heroku](https://ncov-vn.herokuapp.com/)
+
 ## License
 
 - [MIT](./LICENSE)
