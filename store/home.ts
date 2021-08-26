@@ -1,23 +1,15 @@
 import Vue from 'vue';
 import { ActionContext } from 'vuex/types';
 import {
-  AppVietnamSummaryResponse,
-  fetchAppVietNamSummary,
+  AppVietnamStatisticResponse,
+  fetchAppVietNamStatistic,
 } from '@/services/app.service';
 import {
   fetchKompaVietNamCases,
   KompaVietnamCasesResponse,
 } from '@/services/kompa.service';
 import { RootState } from '.';
-
-export interface VietnamSummaryCasesData {
-  confirmed: number;
-  lastConfirmed: number;
-  deaths: number;
-  lastDeaths: number;
-  recovered: number;
-  lastRecovered: number;
-}
+import { VietnamStatistic } from '~/models/VietnamStatistic';
 
 export interface TrendingLineCasesData {
   date: string;
@@ -43,8 +35,8 @@ export interface HomeState {
   provinceCases: {
     data: ProvinceCasesData[];
   };
-  summary: {
-    data: VietnamSummaryCasesData;
+  statistic: {
+    data: VietnamStatistic[];
     loading: boolean;
     error: boolean;
   };
@@ -59,35 +51,28 @@ export const state: () => HomeState = () => ({
   provinceCases: {
     data: [],
   },
-  summary: {
-    data: {
-      confirmed: 0,
-      lastConfirmed: 0,
-      deaths: 0,
-      lastDeaths: 0,
-      recovered: 0,
-      lastRecovered: 0,
-    },
+  statistic: {
+    data: [],
     loading: false,
     error: false,
   },
 });
 
 export const mutations = {
-  fetchVietnamSummaryDataPending(state: HomeState) {
-    Vue.set(state.summary, 'loading', true);
-    Vue.set(state.summary, 'error', false);
+  fetchVietnamStatisticDataPending(state: HomeState) {
+    Vue.set(state.statistic, 'loading', true);
+    Vue.set(state.statistic, 'error', false);
   },
-  fetchVietnamSummaryDataFulfilled(
+  fetchVietnamStatisticDataFulfilled(
     state: HomeState,
-    payload: AppVietnamSummaryResponse
+    payload: AppVietnamStatisticResponse
   ) {
-    Vue.set(state.summary, 'loading', false);
-    Vue.set(state.summary, 'data', payload.data);
+    Vue.set(state.statistic, 'loading', false);
+    Vue.set(state.statistic, 'data', payload.data);
   },
-  fetchVietnamSummaryDataRejected(state: HomeState) {
-    Vue.set(state.summary, 'loading', false);
-    Vue.set(state.summary, 'error', true);
+  fetchVietnamStatisticDataRejected(state: HomeState) {
+    Vue.set(state.statistic, 'loading', false);
+    Vue.set(state.statistic, 'error', true);
   },
 
   fetchVietnamCasesDataPending(state: HomeState) {
@@ -131,15 +116,15 @@ export const mutations = {
 };
 
 export const actions = {
-  async fetchVietnamSummaryCasesData({
+  async fetchVietnamStatisticCasesData({
     commit,
   }: ActionContext<HomeState, RootState>) {
-    commit('fetchVietnamSummaryDataPending');
+    commit('fetchVietnamStatisticDataPending');
     try {
-      const res = await fetchAppVietNamSummary();
-      commit('fetchVietnamSummaryDataFulfilled', res);
+      const res = await fetchAppVietNamStatistic();
+      commit('fetchVietnamStatisticDataFulfilled', res);
     } catch (e) {
-      commit('fetchVietnamSummaryDataRejected');
+      commit('fetchVietnamStatisticDataRejected');
     }
   },
 

@@ -2,17 +2,18 @@
   <v-col cols="6" class="px-2">
     <div
       class="subtitle-2 text-center"
-      :style="{ color: showDailyValue ? color : 'transparent' }"
+      :style="{ color: darkMode && isCuring ? '#e5e7eb' : color }"
       v-text="
-        showDailyValue
-          ? `Hôm nay: ${loading ? '-' : formatNumberMethod(dailyValue)}`
-          : 'abc'
+        `Hôm nay: ${
+          (dailyValue < 0 ? '-' : '+') +
+          formatNumberMethod(Math.abs(dailyValue))
+        }`
       "
     />
     <div
       class="text-h5 font-weight-black text-center"
-      :style="{ color: showDailyValue || !darkMode ? color : '#e5e7eb' }"
-      v-text="loading ? '-' : formatNumberMethod(totalValue)"
+      :style="{ color: darkMode && isCuring ? '#e5e7eb' : color }"
+      v-text="formatNumberMethod(totalValue)"
     />
 
     <v-sheet class="mx-auto mt-2" :color="subColor" width="100%" rounded>
@@ -50,13 +51,9 @@ export default Vue.extend({
       type: Number,
       default: 0,
     },
-    showDailyValue: {
+    isCuring: {
       type: Boolean,
       default: false,
-    },
-    loading: {
-      type: Boolean,
-      default: true,
     },
   },
   computed: {

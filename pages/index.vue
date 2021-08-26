@@ -36,7 +36,7 @@ export default Vue.extend({
   },
   created() {
     this.$store.dispatch('home/fetchVietnamTrendingLineCasesData');
-    this.$store.dispatch('home/fetchVietnamSummaryCasesData');
+    this.$store.dispatch('home/fetchVietnamStatisticCasesData');
   },
 });
 </script>

@@ -1,18 +1,12 @@
+import { VietnamStatistic } from '~/models/VietnamStatistic';
 import { axiosAppClient } from './axiosClient';
 
-export interface AppVietnamSummaryResponse {
-  data: {
-    confirmed: number;
-    lastConfirm: number;
-    deaths: number;
-    lastDeaths: number;
-    recovered: number;
-    lastRecovered: number;
-  };
+export interface AppVietnamStatisticResponse {
+  data: VietnamStatistic;
 }
 
-export const fetchAppVietNamSummary =
-  async (): Promise<AppVietnamSummaryResponse> => {
+export const fetchAppVietNamStatistic =
+  async (): Promise<AppVietnamStatisticResponse> => {
     return await axiosAppClient.get('/vietnam');
   };
 
