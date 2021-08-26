@@ -1,9 +1,4 @@
 export default {
-  target: 'server',
-  serverMiddleware: {
-    '/api': '~/api',
-  },
-
   head: {
     titleTemplate: 'Covid-19 Tracker',
     htmlAttrs: {
@@ -41,9 +36,12 @@ export default {
 
   buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify'],
 
-  modules: ['@nuxtjs/axios', '@nuxt/http'],
+  modules: ['@nuxtjs/axios'],
 
-  loading: false,
+  loading: {
+    color: '#d84315',
+    height: '3px',
+  },
 
   vuetify: {
     theme: {
