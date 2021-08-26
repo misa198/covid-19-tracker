@@ -8,7 +8,6 @@
       darkMode ? theme.dark.headerBackground : theme.light.headerBackground
     "
   >
-    <Loading v-if="statistic.loading" />
     <div
       class="text-h6 font-weight-bold text-center"
       v-text="'Số người đã tiêm'"
@@ -19,18 +18,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Loading from '@/components/common/Loading.vue';
-import { AppVietnamVaccineStatistic } from '@/services/app.service';
+import { AppVietnamVaccineStatistic } from '@/store/vaccine';
 import { theme } from '@/themes';
 
 export default Vue.extend({
-  components: {
-    Loading,
-  },
   computed: {
-    statistic() {
-      return this.$store.state.vaccine.statistic;
-    },
     data() {
       const statisticData = this.$store.state.vaccine.statistic
         .data as AppVietnamVaccineStatistic;

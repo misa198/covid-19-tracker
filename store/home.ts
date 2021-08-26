@@ -1,23 +1,10 @@
 import Vue from 'vue';
 import { ActionContext } from 'vuex/types';
 import {
-  AppVietnamSummaryResponse,
-  fetchAppVietNamSummary,
-} from '@/services/app.service';
-import {
   fetchKompaVietNamCases,
   KompaVietnamCasesResponse,
 } from '@/services/kompa.service';
 import { RootState } from '.';
-
-export interface VietnamSummaryCasesData {
-  confirmed: number;
-  lastConfirmed: number;
-  deaths: number;
-  lastDeaths: number;
-  recovered: number;
-  lastRecovered: number;
-}
 
 export interface TrendingLineCasesData {
   date: string;
@@ -34,6 +21,15 @@ export interface ProvinceCasesData {
   provinceName: string;
 }
 
+export interface VietnamSummaryCasesData {
+  confirmed: number;
+  lastConfirmed: number;
+  deaths: number;
+  lastDeaths: number;
+  recovered: number;
+  lastRecovered: number;
+}
+
 export interface HomeState {
   trendingLineCases: {
     data: TrendingLineCasesData[];
@@ -45,7 +41,6 @@ export interface HomeState {
   };
   summary: {
     data: VietnamSummaryCasesData;
-    loading: boolean;
     error: boolean;
   };
 }
@@ -68,25 +63,18 @@ export const state: () => HomeState = () => ({
       recovered: 0,
       lastRecovered: 0,
     },
-    loading: false,
     error: false,
   },
 });
 
 export const mutations = {
-  fetchVietnamSummaryDataPending(state: HomeState) {
-    Vue.set(state.summary, 'loading', true);
-    Vue.set(state.summary, 'error', false);
-  },
   fetchVietnamSummaryDataFulfilled(
     state: HomeState,
-    payload: AppVietnamSummaryResponse
+    payload: VietnamSummaryCasesData
   ) {
-    Vue.set(state.summary, 'loading', false);
-    Vue.set(state.summary, 'data', payload.data);
+    Vue.set(state.summary, 'data', payload);
   },
   fetchVietnamSummaryDataRejected(state: HomeState) {
-    Vue.set(state.summary, 'loading', false);
     Vue.set(state.summary, 'error', true);
   },
 
@@ -131,18 +119,6 @@ export const mutations = {
 };
 
 export const actions = {
-  async fetchVietnamSummaryCasesData({
-    commit,
-  }: ActionContext<HomeState, RootState>) {
-    commit('fetchVietnamSummaryDataPending');
-    try {
-      const res = await fetchAppVietNamSummary();
-      commit('fetchVietnamSummaryDataFulfilled', res);
-    } catch (e) {
-      commit('fetchVietnamSummaryDataRejected');
-    }
-  },
-
   async fetchVietnamTrendingLineCasesData({
     commit,
   }: ActionContext<HomeState, RootState>) {

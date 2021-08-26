@@ -4,15 +4,13 @@
       class="subtitle-2 text-center"
       :style="{ color: showDailyValue ? color : 'transparent' }"
       v-text="
-        showDailyValue
-          ? `Hôm nay: ${loading ? '-' : formatNumberMethod(dailyValue)}`
-          : 'abc'
+        showDailyValue ? `Hôm nay: ${formatNumberMethod(dailyValue)}` : 'abc'
       "
     />
     <div
       class="text-h5 font-weight-black text-center"
       :style="{ color: showDailyValue || !darkMode ? color : '#e5e7eb' }"
-      v-text="loading ? '-' : formatNumberMethod(totalValue)"
+      v-text="formatNumberMethod(totalValue)"
     />
 
     <v-sheet class="mx-auto mt-2" :color="subColor" width="100%" rounded>
@@ -53,10 +51,6 @@ export default Vue.extend({
     showDailyValue: {
       type: Boolean,
       default: false,
-    },
-    loading: {
-      type: Boolean,
-      default: true,
     },
   },
   computed: {

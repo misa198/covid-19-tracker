@@ -28,6 +28,14 @@ export default Vue.extend({
     HomeContainer,
     Seo,
   },
+  async asyncData({ $axios, store }) {
+    try {
+      const res = await $axios.get('/api/vietnam');
+      store.commit('home/fetchVietnamSummaryDataFulfilled', res.data.data);
+    } catch (error) {
+      store.commit('home/fetchVietnamSummaryDataRejected');
+    }
+  },
   data() {
     return {
       title: 'Covid-19 Tracker',
@@ -36,7 +44,6 @@ export default Vue.extend({
   },
   created() {
     this.$store.dispatch('home/fetchVietnamTrendingLineCasesData');
-    this.$store.dispatch('home/fetchVietnamSummaryCasesData');
   },
 });
 </script>
