@@ -31,7 +31,7 @@ const { loadNuxt, build } = require('nuxt');
   }
 
   app.listen(port, () => {
-    log(`> Server is ready on port ${port} 🚀`);
+    log.info(`> Server is ready on port ${port} 🚀`);
     herokuAwake('https://ncov-vn.herokuapp.com/');
   });
 })();

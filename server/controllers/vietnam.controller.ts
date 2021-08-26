@@ -10,4 +10,14 @@ const getVietnamStatistic = async (_req: Request, res: Response) => {
   }
 };
 
-export default { getVietnamStatistic };
+const getProvincesStatistic = async (_req: Request, res: Response) => {
+  try {
+    const provinceStatistic =
+      await vnExpressService.getProvinceStatisticVnExpress();
+    return res.send({ data: provinceStatistic });
+  } catch (e) {
+    return res.status(500).send({ error: 'error' });
+  }
+};
+
+export default { getVietnamStatistic, getProvincesStatistic };

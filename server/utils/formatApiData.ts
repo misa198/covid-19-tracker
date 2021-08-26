@@ -1,4 +1,5 @@
 import { VietnamStatistic } from '../../models/VietnamStatistic';
+import { ProvinceStatistic } from '../../models/ProvinceStatistic';
 
 export const formatDate = (data: string) => {
   const splitData = data.split('/');
@@ -58,5 +59,29 @@ export const formatVnExpressData = (data: string) => {
       result.push(newItem);
     }
   });
+  return result;
+};
+
+export const formatVnExpressProvinceData = (data: string) => {
+  const lines = data.split('\n');
+  const result: ProvinceStatistic[] = [];
+
+  lines.forEach((line, index) => {
+    if (index > 0) {
+      const lineData = line.split(',');
+      const id = toNumber(lineData[0]);
+      if (id !== 46 && Boolean(lineData[2])) {
+        const newItem = {
+          id,
+          name: lineData[2].split('"')[1],
+          confirmed: toNumber(lineData[3]),
+          newConfirmed: toNumber(lineData[4]),
+          deaths: toNumber(lineData[20]),
+        };
+        result.push(newItem);
+      }
+    }
+  });
+
   return result;
 };
