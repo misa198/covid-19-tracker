@@ -1,5 +1,13 @@
 <template>
-  <v-sheet class="covid-table" :style="{ position: 'relative' }">
+  <v-sheet
+    class="covid-table px-4 py-2"
+    :style="{ position: 'relative' }"
+    rounded
+    :elevation="2"
+    :color="
+      darkMode ? theme.dark.headerBackground : theme.light.headerBackground
+    "
+  >
     <Loading v-if="provinceCasesState.loading" />
     <v-data-table
       :headers="headers"
@@ -7,7 +15,7 @@
       :items-per-page="5"
       :sort-by="'newConfirmed'"
       :sort-desc="true"
-      class="elevation-2"
+      :elevation="0"
     >
       <template #top>
         <v-toolbar flat>
@@ -26,6 +34,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import Loading from '@/components/common/Loading.vue';
+import { theme } from '~/themes';
 
 export default Vue.extend({
   components: {
@@ -46,6 +55,12 @@ export default Vue.extend({
     };
   },
   computed: {
+    darkMode() {
+      return this.$store.state.common.darkMode;
+    },
+    theme() {
+      return theme;
+    },
     provinceCasesState() {
       return this.$store.state.home.provinceCases;
     },
