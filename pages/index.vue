@@ -28,19 +28,19 @@ export default Vue.extend({
     HomeContainer,
     Seo,
   },
-  async asyncData({ $axios, store }) {
+  data() {
+    return {
+      title: 'Covid-19 Tracker',
+      description: 'Theo dõi tình hình dịch bệnh Covid-19 tại Việt Nam',
+    };
+  },
+  async fetch({ $axios, store }) {
     try {
       const res = await $axios.get('/api/vietnam');
       store.commit('home/fetchVietnamSummaryDataFulfilled', res.data.data);
     } catch (error) {
       store.commit('home/fetchVietnamSummaryDataRejected');
     }
-  },
-  data() {
-    return {
-      title: 'Covid-19 Tracker',
-      description: 'Theo dõi tình hình dịch bệnh Covid-19 tại Việt Nam',
-    };
   },
   created() {
     this.$store.dispatch('home/fetchVietnamTrendingLineCasesData');

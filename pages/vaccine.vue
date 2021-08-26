@@ -26,19 +26,19 @@ export default Vue.extend({
     VaccineChartWrapper,
     Seo,
   },
-  async asyncData({ $axios, store }) {
+  data() {
+    return {
+      title: 'Thông tin Vaccine | Covid-19 Tracker',
+      description: 'Thông tin Vaccine Covid-19 tại Việt Nam',
+    };
+  },
+  async fetch({ $axios, store }) {
     try {
       const res = await $axios.get('/api/vaccine');
       store.commit('vaccine/fetchVaccineDataFulfilled', res.data.data);
     } catch (error) {
       store.commit('vaccine/fetchVaccineDataRejected');
     }
-  },
-  data() {
-    return {
-      title: 'Thông tin Vaccine | Covid-19 Tracker',
-      description: 'Thông tin Vaccine Covid-19 tại Việt Nam',
-    };
   },
 });
 </script>
