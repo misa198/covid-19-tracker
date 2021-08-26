@@ -1,15 +1,14 @@
-import Vue from 'vue';
-import { ActionContext } from 'vuex/types';
 import {
+  AppProvinceStatisticResponse,
   AppVietnamStatisticResponse,
+  fetchAppProvinceStatistic,
   fetchAppVietNamStatistic,
 } from '@/services/app.service';
-import {
-  fetchKompaVietNamCases,
-  KompaVietnamCasesResponse,
-} from '@/services/kompa.service';
-import { RootState } from '.';
+import Vue from 'vue';
+import { ActionContext } from 'vuex/types';
+import { ProvinceStatistic } from '~/models/ProvinceStatistic';
 import { VietnamStatistic } from '~/models/VietnamStatistic';
+import { RootState } from '.';
 
 export interface TrendingLineCasesData {
   date: string;
@@ -27,13 +26,10 @@ export interface ProvinceCasesData {
 }
 
 export interface HomeState {
-  trendingLineCases: {
-    data: TrendingLineCasesData[];
+  provinceCases: {
+    data: ProvinceStatistic[];
     loading: boolean;
     error: boolean;
-  };
-  provinceCases: {
-    data: ProvinceCasesData[];
   };
   statistic: {
     data: VietnamStatistic[];
@@ -43,13 +39,10 @@ export interface HomeState {
 }
 
 export const state: () => HomeState = () => ({
-  trendingLineCases: {
+  provinceCases: {
     data: [],
     loading: false,
     error: false,
-  },
-  provinceCases: {
-    data: [],
   },
   statistic: {
     data: [],
@@ -75,43 +68,20 @@ export const mutations = {
     Vue.set(state.statistic, 'error', true);
   },
 
-  fetchVietnamCasesDataPending(state: HomeState) {
-    Vue.set(state.trendingLineCases, 'loading', true);
-    Vue.set(state.trendingLineCases, 'error', false);
+  fetchProvincesStatisticDataPending(state: HomeState) {
+    Vue.set(state.provinceCases, 'loading', true);
+    Vue.set(state.provinceCases, 'error', false);
   },
-  fetchVietnamCasesDataFulfilled(
+  fetchProvincesStatisticDataFulfilled(
     state: HomeState,
-    payload: KompaVietnamCasesResponse
+    payload: AppProvinceStatisticResponse
   ) {
-    const trendingLineCasesRes: TrendingLineCasesData[] = [];
-    payload.data.trendlineVnCases.forEach((item) => {
-      trendingLineCasesRes.push({
-        date: `${item.date.slice(6, 8)}-${item.date.slice(
-          4,
-          6
-        )}-${item.date.slice(0, 4)}`,
-        confirmed: parseInt(item.confirmed, 10),
-        recovered: parseInt(item.recovered, 10),
-        deaths: parseInt(item.deaths, 10),
-      });
-    });
-    const provinceCasesRes: ProvinceCasesData[] = [];
-    payload.data.provinces.forEach((province) => {
-      provinceCasesRes.push({
-        confirmed: parseInt(province.Confirmed, 10),
-        deaths: parseInt(province.Deaths, 10),
-        recovered: parseInt(province.Recovered, 10),
-        provinceId: province.Province_Id,
-        provinceName: province.Province_Name,
-      });
-    });
-    Vue.set(state.trendingLineCases, 'data', trendingLineCasesRes);
-    Vue.set(state.provinceCases, 'data', provinceCasesRes);
-    Vue.set(state.trendingLineCases, 'loading', false);
+    Vue.set(state.provinceCases, 'loading', false);
+    Vue.set(state.provinceCases, 'data', payload.data);
   },
-  fetchVietnamCasesDataRejected(state: HomeState) {
-    Vue.set(state.trendingLineCases, 'loading', false);
-    Vue.set(state.trendingLineCases, 'error', true);
+  fetchProvincesStatisticDataRejected(state: HomeState) {
+    Vue.set(state.provinceCases, 'loading', false);
+    Vue.set(state.provinceCases, 'error', true);
   },
 };
 
@@ -128,15 +98,15 @@ export const actions = {
     }
   },
 
-  async fetchVietnamTrendingLineCasesData({
+  async fetchProvinceStatisticCasesData({
     commit,
   }: ActionContext<HomeState, RootState>) {
-    commit('fetchVietnamCasesDataPending');
+    commit('fetchProvincesStatisticDataPending');
     try {
-      const res = await fetchKompaVietNamCases();
-      commit('fetchVietnamCasesDataFulfilled', res);
+      const res = await fetchAppProvinceStatistic();
+      commit('fetchProvincesStatisticDataFulfilled', res);
     } catch (e) {
-      commit('fetchVietnamCasesDataRejected');
+      commit('fetchProvincesStatisticDataRejected');
     }
   },
 };

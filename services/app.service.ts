@@ -1,3 +1,4 @@
+import { ProvinceStatistic } from '~/models/ProvinceStatistic';
 import { VietnamStatistic } from '~/models/VietnamStatistic';
 import { axiosAppClient } from './axiosClient';
 
@@ -8,6 +9,15 @@ export interface AppVietnamStatisticResponse {
 export const fetchAppVietNamStatistic =
   async (): Promise<AppVietnamStatisticResponse> => {
     return await axiosAppClient.get('/vietnam');
+  };
+
+export interface AppProvinceStatisticResponse {
+  data: ProvinceStatistic;
+}
+
+export const fetchAppProvinceStatistic =
+  async (): Promise<AppProvinceStatisticResponse> => {
+    return await axiosAppClient.get('/vietnam/provinces');
   };
 
 export interface AppVietnamVaccineStatistic {

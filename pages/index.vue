@@ -4,7 +4,7 @@
     <SummarySheet />
     <SummaryNewPhaseSheet />
     <client-only>
-      <CovidChartWrapper />
+      <!-- <CovidChartWrapper /> -->
     </client-only>
     <div class="mt-8 mb-8">
       <HomeContainer>
@@ -38,7 +38,7 @@ export default Vue.extend({
     };
   },
   created() {
-    this.$store.dispatch('home/fetchVietnamTrendingLineCasesData');
+    this.$store.dispatch('home/fetchProvinceStatisticCasesData');
     this.$store.dispatch('home/fetchVietnamStatisticCasesData');
   },
 });

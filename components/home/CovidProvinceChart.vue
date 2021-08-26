@@ -8,7 +8,7 @@
       darkMode ? theme.dark.headerBackground : theme.light.headerBackground
     "
   >
-    <Loading v-if="trendingLineCases.loading" />
+    <Loading v-if="provinceCasesState.loading" />
     <div class="text-h6 font-weight-bold text-center" v-text="label" />
     <apexchart
       width="100%"
@@ -58,8 +58,8 @@ export default Vue.extend({
     theme() {
       return theme;
     },
-    trendingLineCases() {
-      return this.$store.state.home.trendingLineCases;
+    provinceCasesState() {
+      return this.$store.state.home.provinceCases;
     },
     data() {
       const provinceCasesStore = (this.$store as any).state.home.provinceCases

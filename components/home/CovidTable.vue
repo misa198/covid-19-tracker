@@ -1,10 +1,12 @@
 <template>
   <v-sheet class="covid-table" :style="{ position: 'relative' }">
-    <Loading v-if="trendingLineCases.loading" />
+    <Loading v-if="provinceCasesState.loading" />
     <v-data-table
       :headers="headers"
       :items="provinceCasesState.data"
       :items-per-page="5"
+      :sort-by="'newConfirmed'"
+      :sort-desc="true"
       class="elevation-2"
     >
       <template #top>
@@ -35,10 +37,10 @@ export default Vue.extend({
       headers: [
         {
           text: 'Tỉnh thành',
-          value: 'provinceName',
+          value: 'name',
         },
         { text: 'Nhiễm bệnh', value: 'confirmed' },
-        { text: 'Hồi phục', value: 'recovered' },
+        { text: 'Nhiễm hôm nay', value: 'newConfirmed', color: 'red' },
         { text: 'Tử vong', value: 'deaths' },
       ],
     };
@@ -46,9 +48,6 @@ export default Vue.extend({
   computed: {
     provinceCasesState() {
       return this.$store.state.home.provinceCases;
-    },
-    trendingLineCases() {
-      return this.$store.state.home.trendingLineCases;
     },
   },
 });
