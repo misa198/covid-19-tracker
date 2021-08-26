@@ -19,7 +19,7 @@
         xaxis: {
           categories: data.dates,
           tickPlacement: 'on',
-          tickAmount: 3,
+          tickAmount: 5,
           labels: {
             rotate: 0,
             rotateAlways: false,
@@ -57,8 +57,9 @@
 <script lang="ts">
 import Vue from 'vue';
 import Loading from '@/components/common/Loading.vue';
-import { TrendingLineCasesData } from '@/store/home';
 import { theme } from '@/themes';
+import { VietnamStatistic } from '~/models/VietnamStatistic';
+import { formatNumber } from '~/utils/formatNumber';
 
 interface Range {
   name: string;
@@ -69,7 +70,7 @@ const ranges: Range[] = [
   { name: '1 tháng', value: 30 },
   { name: '2 tháng', value: 60 },
   { name: '3 tháng', value: 90 },
-  { name: '6 tháng', value: 180 },
+  { name: 'Toàn bộ', value: 10000 },
 ];
 
 export default Vue.extend({
@@ -97,17 +98,16 @@ export default Vue.extend({
       return this.$store.state.home.trendingLineCases;
     },
     data() {
-      const trendingsLineVietnamCases =
-        this.$store.state.home.trendingLineCases.data;
+      const trendingsLineVietnamCases = this.$store.state.home.statistic.data;
       const dates: string[] = [];
       const confirmed: number[] = [];
       const recovered: number[] = [];
       const deaths: number[] = [];
-      trendingsLineVietnamCases.forEach((item: TrendingLineCasesData) => {
+      trendingsLineVietnamCases.forEach((item: VietnamStatistic) => {
         dates.push(item.date);
-        confirmed.push(item.confirmed);
-        recovered.push(item.recovered);
-        deaths.push(item.deaths);
+        confirmed.push(item.newConfirmed);
+        recovered.push(item.newRecovered);
+        deaths.push(item.newDeaths);
       });
       return {
         dates: dates.slice(
@@ -142,6 +142,13 @@ export default Vue.extend({
           zoom: false,
           toolbar: {
             show: false,
+          },
+        },
+        yaxis: {
+          labels: {
+            formatter(value: number) {
+              return formatNumber(value);
+            },
           },
         },
       };
