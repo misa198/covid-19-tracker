@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <Seo :title="title" :description="description" />
     <HomeContainer>
       <WorldSummary />
     </HomeContainer>
@@ -9,11 +10,13 @@
 import Vue from 'vue';
 import HomeContainer from '@/components/common/HomeContainer.vue';
 import WorldSummary from '@/components/world/WorldSummary.vue';
+import Seo from '@/components/common/Seo.vue';
 
 export default Vue.extend({
   components: {
     WorldSummary,
     HomeContainer,
+    Seo,
   },
   data() {
     return {

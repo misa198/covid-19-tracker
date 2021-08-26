@@ -1,5 +1,6 @@
 <template>
   <v-container :style="{ height: '100%' }">
+    <Seo :title="title" :description="description" />
     <HomeContainer
       class="d-flex justify-center align-center py-4"
       :style="{ height: '100%' }"
@@ -50,42 +51,17 @@
 import Vue from 'vue';
 import { theme } from '@/themes';
 import HomeContainer from '@/components/common/HomeContainer.vue';
+import Seo from '@/components/common/Seo.vue';
 
 export default Vue.extend({
   components: {
     HomeContainer,
+    Seo,
   },
   data() {
     return {
       title: 'Thông tin | Covid-19 Tracker',
       description: 'Về Covid-19 Tracker',
-    };
-  },
-  head() {
-    return {
-      title: this.$data.title,
-      meta: [
-        {
-          hid: 'title',
-          name: 'title',
-          content: this.$data.title,
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: this.$data.title,
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.$data.description,
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: this.$data.description,
-        },
-      ],
     };
   },
   computed: {
