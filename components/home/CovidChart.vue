@@ -59,7 +59,7 @@ import Vue from 'vue';
 import Loading from '@/components/common/Loading.vue';
 import { theme } from '@/themes';
 import { VietnamStatistic } from '~/models/VietnamStatistic';
-import { formatNumber } from '~/utils/formatNumber';
+import { formatNumber, formatNumberWithComma } from '~/utils/formatNumber';
 
 interface Range {
   name: string;
@@ -144,10 +144,17 @@ export default Vue.extend({
             show: false,
           },
         },
+        tooltip: {
+          y: {
+            formatter: (value: number) => {
+              return formatNumber(value);
+            },
+          },
+        },
         yaxis: {
           labels: {
             formatter(value: number) {
-              return formatNumber(value);
+              return formatNumberWithComma(value);
             },
           },
         },

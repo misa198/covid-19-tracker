@@ -22,7 +22,7 @@ import Vue from 'vue';
 import Loading from '@/components/common/Loading.vue';
 import { AppVietnamVaccineStatistic } from '@/services/app.service';
 import { theme } from '@/themes';
-import { formatNumber } from '~/utils/formatNumber';
+import { formatNumber, formatNumberWithComma } from '~/utils/formatNumber';
 
 export default Vue.extend({
   components: {
@@ -78,10 +78,17 @@ export default Vue.extend({
               rotateAlways: false,
             },
           },
+          tooltip: {
+            y: {
+              formatter: (value: number) => {
+                return formatNumber(value);
+              },
+            },
+          },
           yaxis: {
             labels: {
               formatter(value: number) {
-                return formatNumber(value);
+                return formatNumberWithComma(value);
               },
             },
           },
