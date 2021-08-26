@@ -19,15 +19,15 @@ const { loadNuxt, build } = require('nuxt');
   app.use('/api/vietnam', vietnamRoute);
   app.use('/api/vaccine', vaccineRoute);
   app.use(nuxt.render);
+  app.use(
+    helmet({
+      contentSecurityPolicy: false,
+    })
+  );
+  app.disable('x-powered-by');
 
   if (isDev) {
     build(nuxt);
-  } else {
-    app.use(
-      helmet({
-        contentSecurityPolicy: false,
-      })
-    );
   }
 
   app.listen(port, () => {
