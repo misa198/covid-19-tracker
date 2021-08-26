@@ -6,10 +6,10 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col md="6" sm="12" cols="6">
+      <v-col md="6" sm="12" cols="12">
         <CovidProvinceChart />
       </v-col>
-      <v-col md="6" sm="12" cols="6">
+      <v-col md="6" sm="12" cols="12">
         <CovidProvinceDeathsChart />
       </v-col>
     </v-row>
