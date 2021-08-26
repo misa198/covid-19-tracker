@@ -107,11 +107,11 @@ export default Vue.extend({
       if (statisticData.length === 0) return {};
 
       const lastDayData = statisticData[statisticData.length - 1];
-      const confirmed = lastDayData.totalConfirmed;
+      const confirmed = lastDayData.totalConfirmed2020;
       const newConfirmed = lastDayData.newConfirmed;
-      const recovered = lastDayData.totalRecovered;
+      const recovered = lastDayData.totalRecovered2020;
       const newRecovered = lastDayData.newRecovered;
-      const deaths = lastDayData.totalDeaths;
+      const deaths = lastDayData.totalDeaths2020;
       const newDeaths = lastDayData.newDeaths;
       const curing = lastDayData.totalCuring;
       const newCuring = lastDayData.newCuring;

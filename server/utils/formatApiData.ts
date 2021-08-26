@@ -50,6 +50,9 @@ export const formatVnExpressData = (data: string) => {
         totalCuring: toNumber(lineData[21]),
         vaccineFund: toNumber(lineData[12]),
         newDonation: toNumber(lineData[13]),
+        totalConfirmed2020: toNumber(lineData[22]),
+        totalDeaths2020: toNumber(lineData[23]),
+        totalRecovered2020: toNumber(lineData[24]),
       };
 
       result.push(newItem);

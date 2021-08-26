@@ -1,6 +1,7 @@
 <template>
   <v-col cols="6" class="px-2">
     <div
+      v-if="showSubtitle"
       class="subtitle-2 text-center"
       :style="{ color: darkMode && isCuring ? '#e5e7eb' : color }"
       v-text="
@@ -54,6 +55,10 @@ export default Vue.extend({
     isCuring: {
       type: Boolean,
       default: false,
+    },
+    showSubtitle: {
+      type: Boolean,
+      default: true,
     },
   },
   computed: {

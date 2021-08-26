@@ -15,4 +15,7 @@ export interface VietnamStatistic {
   totalCuring: number;
   vaccineFund: number;
   newDonation: number;
+  totalConfirmed2020: number;
+  totalDeaths2020: number;
+  totalRecovered2020: number;
 }
