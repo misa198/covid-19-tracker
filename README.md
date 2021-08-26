@@ -45,7 +45,7 @@ Web application to monitor the developments of the Covid-19 epidemic in Vietnam.
 
 ## Demo
 
-- [Heroku](https://ncov-vn.herokuapp.com/)
+- [Website](https://covi.vercel.app/)
 
 ## License
 
