@@ -33,8 +33,9 @@
 <script lang="ts">
 import Vue from 'vue';
 import Loading from '@/components/common/Loading.vue';
-import { ProvinceCasesData } from '@/store/home';
 import { theme } from '@/themes';
+import { ProvinceStatistic } from '~/models/ProvinceStatistic';
+import { formatNumber } from '~/utils/formatNumber';
 
 export default Vue.extend({
   components: {
@@ -53,7 +54,7 @@ export default Vue.extend({
   },
   computed: {
     darkMode() {
-      return (this.$store as any).state.common.darkMode;
+      return this.$store.state.common.darkMode;
     },
     theme() {
       return theme;
@@ -62,11 +63,11 @@ export default Vue.extend({
       return this.$store.state.home.provinceCases;
     },
     data() {
-      const provinceCasesStore = (this.$store as any).state.home.provinceCases
-        .data as ProvinceCasesData[];
+      const provinceCasesData = this.$store.state.home.provinceCases
+        .data as ProvinceStatistic[];
       const provinceCases = JSON.parse(
-        JSON.stringify(provinceCasesStore)
-      ) as ProvinceCasesData[];
+        JSON.stringify(provinceCasesData)
+      ) as ProvinceStatistic[];
       provinceCases.sort((a, b) => a.confirmed - b.confirmed);
       const topFiveProvinces = provinceCases
         .slice(Math.max(provinceCases.length - 5, 1))
@@ -74,7 +75,7 @@ export default Vue.extend({
       const names: string[] = [];
       const cases: number[] = [];
       topFiveProvinces.forEach((province) => {
-        names.push(province.provinceName);
+        names.push(province.name);
         cases.push(province.confirmed);
       });
       return { names, cases };
@@ -82,10 +83,13 @@ export default Vue.extend({
     options() {
       return {
         theme: {
-          mode: (this.$store as any).state.common.darkMode ? 'dark' : 'light',
+          mode: this.$store.state.common.darkMode ? 'dark' : 'light',
         },
         dataLabels: {
           enabled: true,
+          formatter(value: number) {
+            return formatNumber(value);
+          },
         },
         colors: [theme.default.danger],
         chart: {
@@ -93,6 +97,13 @@ export default Vue.extend({
           zoom: false,
           toolbar: {
             show: false,
+          },
+        },
+        yaxis: {
+          labels: {
+            formatter(value: number) {
+              return formatNumber(value);
+            },
           },
         },
       };

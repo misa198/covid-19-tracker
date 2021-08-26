@@ -4,7 +4,7 @@
     <SummarySheet />
     <SummaryNewPhaseSheet />
     <client-only>
-      <!-- <CovidChartWrapper /> -->
+      <CovidChartWrapper />
     </client-only>
     <div class="mt-8 mb-8">
       <HomeContainer>
