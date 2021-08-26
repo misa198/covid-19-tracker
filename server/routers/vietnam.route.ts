@@ -3,6 +3,6 @@ import controller from '../controllers/vietnam.controller';
 
 const router = Router();
 
-router.get('/', controller.getVietnamSummary);
+router.get('/', controller.getVietnamStatistic);
 
 export default router;
