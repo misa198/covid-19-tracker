@@ -10,21 +10,6 @@ import { ProvinceStatistic } from '~/models/ProvinceStatistic';
 import { VietnamStatistic } from '~/models/VietnamStatistic';
 import { RootState } from '.';
 
-export interface TrendingLineCasesData {
-  date: string;
-  confirmed: number;
-  recovered: number;
-  deaths: number;
-}
-
-export interface ProvinceCasesData {
-  confirmed: number;
-  deaths: number;
-  recovered: number;
-  provinceId: string;
-  provinceName: string;
-}
-
 export interface HomeState {
   provinceCases: {
     data: ProvinceStatistic[];
