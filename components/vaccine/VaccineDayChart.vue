@@ -22,6 +22,7 @@ import Vue from 'vue';
 import Loading from '@/components/common/Loading.vue';
 import { AppVietnamVaccineStatistic } from '@/services/app.service';
 import { theme } from '@/themes';
+import { formatNumber } from '~/utils/formatNumber';
 
 export default Vue.extend({
   components: {
@@ -77,10 +78,17 @@ export default Vue.extend({
               rotateAlways: false,
             },
           },
+          yaxis: {
+            labels: {
+              formatter(value: number) {
+                return formatNumber(value);
+              },
+            },
+          },
         },
         series: [
-          { name: 'Tiêm mũi 1', data: first, type: 'area' },
-          { name: 'Tiêm mũi 2', data: second, type: 'area' },
+          { name: 'Tiêm 1 mũi', data: first, type: 'area' },
+          { name: 'Tiêm 2 mũi', data: second, type: 'area' },
           { name: 'Trung bình 7 ngày', data: average, type: 'line' },
         ],
       };
