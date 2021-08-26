@@ -1,7 +1,7 @@
 export default {
   target: 'server',
   serverMiddleware: {
-    '/api/*': '~/api/*',
+    '/api': '~/api',
   },
 
   head: {
