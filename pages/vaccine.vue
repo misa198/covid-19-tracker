@@ -32,13 +32,8 @@ export default Vue.extend({
       description: 'Thông tin Vaccine Covid-19 tại Việt Nam',
     };
   },
-  async fetch({ $axios, store }) {
-    try {
-      const res = await $axios.get('/api/vaccine');
-      store.commit('vaccine/fetchVaccineDataFulfilled', res.data.data);
-    } catch (error) {
-      store.commit('vaccine/fetchVaccineDataRejected');
-    }
+  created() {
+    this.$store.dispatch('vaccine/fetchAppVietNamVaccineStatistic');
   },
 });
 </script>

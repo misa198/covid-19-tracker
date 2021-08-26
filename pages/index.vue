@@ -34,16 +34,9 @@ export default Vue.extend({
       description: 'Theo dõi tình hình dịch bệnh Covid-19 tại Việt Nam',
     };
   },
-  async fetch({ $axios, store }) {
-    try {
-      const res = await $axios.get('/api/vietnam');
-      store.commit('home/fetchVietnamSummaryDataFulfilled', res.data.data);
-    } catch (error) {
-      store.commit('home/fetchVietnamSummaryDataRejected');
-    }
-  },
   created() {
     this.$store.dispatch('home/fetchVietnamTrendingLineCasesData');
+    this.$store.dispatch('home/fetchVietnamSummaryCasesData');
   },
 });
 </script>

@@ -9,6 +9,7 @@
       "
       :style="{ position: 'relative' }"
     >
+      <Loading v-if="summary.loading" />
       <v-sheet
         class="mx-auto"
         :color="
@@ -43,6 +44,7 @@
             :title="'Ca nhiễm'"
             :total-value="summary.data.confirmed"
             :daily-value="summary.data.confirmed - summary.data.lastConfirmed"
+            :loading="summary.loading"
           />
           <SumaryItem
             :show-daily-value="true"
@@ -51,6 +53,7 @@
             :title="'Hồi phục'"
             :total-value="summary.data.recovered"
             :daily-value="summary.data.recovered - summary.data.lastRecovered"
+            :loading="summary.loading"
           />
         </v-row>
         <v-row>
@@ -61,6 +64,7 @@
             :title="'Tử vong'"
             :total-value="summary.data.deaths"
             :daily-value="summary.data.deaths - summary.data.lastDeaths"
+            :loading="summary.loading"
           />
           <SumaryItem
             :show-daily-value="false"
@@ -68,6 +72,7 @@
             :sub-color="theme.default.infoSecondary"
             :title="'Đang điều trị'"
             :total-value="summary.data.curing"
+            :loading="summary.loading"
           />
         </v-row>
       </div>
@@ -78,12 +83,14 @@
 import Vue from 'vue';
 import HomeContainer from '@/components/common/HomeContainer.vue';
 import SumaryItem from '@/components/home/SummaryItem.vue';
+import Loading from '@/components/common/Loading.vue';
 import { theme } from '@/themes';
 
 export default Vue.extend({
   components: {
     SumaryItem,
     HomeContainer,
+    Loading,
   },
   data() {
     return {

@@ -8,6 +8,7 @@
     "
     :style="{ position: 'relative' }"
   >
+    <Loading v-if="statistic.loading" />
     <v-row>
       <v-col
         xs="12"
@@ -23,20 +24,28 @@
         </div>
         <div class="text-h4 text-center font-weight-bold">
           {{
-            formatNumber(statistic.data.firstTotal + statistic.data.secondTotal)
+            statistic.loading
+              ? '-'
+              : formatNumber(
+                  statistic.data.firstTotal + statistic.data.secondTotal
+                )
           }}
         </div>
       </v-col>
       <v-col xs="12" sm="6" md="4" cols="12" :span="4" class="pa-4">
         <div class="text-subtitle-2 text-center mb-2">Đã tiêm 1 mũi</div>
         <div class="text-h4 text-center font-weight-bold">
-          {{ formatNumber(statistic.data.firstTotal) }}
+          {{
+            statistic.loading ? '-' : formatNumber(statistic.data.firstTotal)
+          }}
         </div>
       </v-col>
       <v-col xs="12" sm="6" md="4" cols="12" :span="4" class="pa-4">
         <div class="text-subtitle-2 text-center mb-2">Đã tiêm 2 mũi</div>
         <div class="text-h4 text-center font-weight-bold">
-          {{ formatNumber(statistic.data.secondTotal) }}
+          {{
+            statistic.loading ? '-' : formatNumber(statistic.data.secondTotal)
+          }}
         </div>
       </v-col>
     </v-row>
@@ -67,10 +76,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Loading from '@/components/common/Loading.vue';
 import { theme } from '@/themes';
 import { formatNumber } from '@/utils/formatNumber';
 
 export default Vue.extend({
+  components: {
+    Loading,
+  },
   computed: {
     darkMode() {
       return this.$store.state.common.darkMode;
