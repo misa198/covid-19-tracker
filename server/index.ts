@@ -3,6 +3,7 @@ config();
 
 import express from 'express';
 import helmet from 'helmet';
+import log from 'fancy-log';
 import vietnamRoute from './routers/vietnam.route';
 import vaccineRoute from './routers/vaccine.route';
 
@@ -30,7 +31,7 @@ async function start() {
   app.use(nuxt.render);
 
   app.listen(port, () => {
-    console.log('Server ready on port ' + port);
+    log('Server ready on port ' + port);
   });
 }
 
