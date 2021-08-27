@@ -12,9 +12,13 @@ const getVietnamStatistic = async (_req: Request, res: Response) => {
 
 const getProvincesStatistic = async (_req: Request, res: Response) => {
   try {
-    const provinceStatistic =
-      await vnExpressService.getProvinceStatisticVnExpress();
-    return res.send({ data: provinceStatistic });
+    const result = await vnExpressService.getProvinceStatisticVnExpress();
+    return res.send({
+      data: result[0],
+      meta: {
+        lastedUpdate: result[1],
+      },
+    });
   } catch (e) {
     return res.status(500).send({ error: 'error' });
   }
