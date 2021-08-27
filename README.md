@@ -45,7 +45,7 @@ Web application to monitor the developments of the Covid-19 epidemic in Vietnam.
 
 ## Demo
 
-- [Website](https://ncov-vn.herokuapp.com/)
+- [Website](https://nkov.tk/)
 
 ## License
 
