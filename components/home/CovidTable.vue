@@ -16,7 +16,34 @@
       :sort-by="'newConfirmed'"
       :sort-desc="true"
       :elevation="0"
+      :header-props="{
+        'sort-by-text': 'Sắp xếp',
+      }"
+      :footer-props="{
+        'items-per-page-text': '',
+        'items-per-page-all-text': 'Tất cả',
+      }"
     >
+      <template #[`item.name`]="{ item }">
+        <span class="font-weight-bold">{{ item.name }}</span>
+      </template>
+      <template #[`item.confirmed`]="{ item }">
+        <span class="font-weight-bold">{{ item.confirmed }}</span>
+      </template>
+      <template #[`item.newConfirmed`]="{ item }">
+        <span
+          class="font-weight-bold"
+          :style="{ color: theme.default.warning }"
+          >{{ item.newConfirmed }}</span
+        >
+      </template>
+      <template #[`item.deaths`]="{ item }">
+        <span
+          class="font-weight-bold"
+          :style="{ color: theme.default.danger }"
+          >{{ item.deaths }}</span
+        >
+      </template>
       <template #top>
         <v-toolbar flat>
           <v-toolbar-title class="ma-auto">
@@ -70,6 +97,10 @@ export default Vue.extend({
 
 <style lang="scss">
 .covid-table {
+  .v-data-table-header th {
+    font-size: 13.5px !important;
+  }
+
   .v-toolbar__content {
     background: #fff !important;
   }
