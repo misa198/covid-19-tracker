@@ -21,8 +21,12 @@
         rounded
       >
         <div
-          class="text-h6 font-weight-bold text-center py-2"
+          class="text-h6 font-weight-bold text-center pt-2"
           v-text="headerTitle"
+        />
+        <div
+          class="text-subtitle-2 text-center pb-2 pt-1"
+          v-text="`Cập nhật: ${lastedUpdate}`"
         />
       </v-sheet>
       <div
@@ -101,6 +105,9 @@ export default Vue.extend({
     },
     statistic() {
       return this.$store.state.home.statistic;
+    },
+    lastedUpdate() {
+      return this.$store.state.home.statistic.lastedUpdate;
     },
     summary() {
       const statisticData = this.$store.state.home.statistic.data;

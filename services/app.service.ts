@@ -4,6 +4,9 @@ import { axiosAppClient } from './axiosClient';
 
 export interface AppVietnamStatisticResponse {
   data: VietnamStatistic;
+  meta: {
+    lastedUpdate: string;
+  };
 }
 
 export const fetchAppVietNamStatistic =

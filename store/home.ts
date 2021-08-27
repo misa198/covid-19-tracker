@@ -18,6 +18,7 @@ export interface HomeState {
   };
   statistic: {
     data: VietnamStatistic[];
+    lastUpdated: string;
     loading: boolean;
     error: boolean;
   };
@@ -31,6 +32,7 @@ export const state: () => HomeState = () => ({
   },
   statistic: {
     data: [],
+    lastUpdated: '',
     loading: false,
     error: false,
   },
@@ -47,6 +49,7 @@ export const mutations = {
   ) {
     Vue.set(state.statistic, 'loading', false);
     Vue.set(state.statistic, 'data', payload.data);
+    Vue.set(state.statistic, 'lastedUpdate', payload.meta.lastedUpdate);
   },
   fetchVietnamStatisticDataRejected(state: HomeState) {
     Vue.set(state.statistic, 'loading', false);
