@@ -8,7 +8,7 @@
       darkMode ? theme.dark.headerBackground : theme.light.headerBackground
     "
   >
-    <Loading v-if="provinceCasesState.loading" />
+    <Loading v-if="statistic.loading" />
     <div class="text-h6 font-weight-bold text-center" v-text="label" />
     <apexchart
       class="mb-4"
@@ -94,16 +94,16 @@ export default Vue.extend({
     darkMode() {
       return this.$store.state.common.darkMode;
     },
-    provinceCasesState() {
-      return this.$store.state.home.provinceCases;
+    statistic() {
+      return this.$store.state.home.statistic;
     },
     data() {
-      const trendingsLineVietnamCases = this.$store.state.home.statistic.data;
+      const statistic = this.$store.state.home.statistic.data;
       const dates: string[] = [];
       const confirmed: number[] = [];
       const recovered: number[] = [];
       const deaths: number[] = [];
-      trendingsLineVietnamCases.forEach((item: VietnamStatistic) => {
+      statistic.forEach((item: VietnamStatistic) => {
         dates.push(item.date);
         confirmed.push(item.newConfirmed);
         recovered.push(item.newRecovered);
