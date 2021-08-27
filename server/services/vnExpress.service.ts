@@ -11,9 +11,13 @@ import {
 import { expressUpdateDateTime } from '../../constants/regex';
 
 const getVietnamStatisticVnExpress = async () => {
-  const body = await axios.get(covidVnExpressApiUrl);
-  const parsedData = formatVnExpressData(body.data as string);
-  const siteData = (await axios.get(covidVnExpressSiteUrl)).data;
+  const [bodyRes, siteDataRes] = await Promise.all([
+    axios.get(covidVnExpressApiUrl),
+    axios.get(covidVnExpressSiteUrl),
+  ]);
+  const body = bodyRes.data;
+  const parsedData = formatVnExpressData(body);
+  const siteData = siteDataRes.data;
   const updatedTime = siteData
     .match(expressUpdateDateTime)[0]
     .split('Cập nhật ')[1];
