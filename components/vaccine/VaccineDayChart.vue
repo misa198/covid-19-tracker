@@ -92,11 +92,21 @@ export default Vue.extend({
               },
             },
           },
+          stroke: {
+            show: true,
+            curve: 'smooth',
+            lineCap: 'butt',
+            width: 2,
+          },
         },
         series: [
           { name: 'Tiêm 1 mũi', data: first, type: 'area' },
           { name: 'Tiêm 2 mũi', data: second, type: 'area' },
-          { name: 'Trung bình 7 ngày', data: average, type: 'line' },
+          {
+            name: 'Trung bình 7 ngày',
+            data: average,
+            type: 'line',
+          },
         ],
       };
     },

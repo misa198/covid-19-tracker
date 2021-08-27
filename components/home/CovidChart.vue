@@ -28,8 +28,8 @@
       }"
       :series="[
         { name: 'Số ca nhiễm', data: data.confirmed },
-        { name: 'Tử vong', data: data.deaths },
         { name: 'Hồi phục', data: data.recovered },
+        { name: 'Tử vong', data: data.deaths },
       ]"
     />
     <v-row class="mb-2 px-4">
@@ -134,8 +134,8 @@ export default Vue.extend({
         },
         colors: [
           theme.default.warning,
-          theme.default.danger,
           theme.default.success,
+          theme.default.danger,
         ],
         chart: {
           id: 'chart',
@@ -157,6 +157,12 @@ export default Vue.extend({
               return formatNumberWithComma(value);
             },
           },
+        },
+        stroke: {
+          show: true,
+          curve: 'smooth',
+          lineCap: 'butt',
+          width: 2,
         },
       };
     },

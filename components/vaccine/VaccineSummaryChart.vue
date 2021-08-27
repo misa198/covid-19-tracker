@@ -86,6 +86,12 @@ export default Vue.extend({
               },
             },
           },
+          stroke: {
+            show: true,
+            curve: 'smooth',
+            lineCap: 'butt',
+            width: 1,
+          },
         },
         series: [
           { name: 'Tiêm 1 mũi', data: first, type: 'area' },
