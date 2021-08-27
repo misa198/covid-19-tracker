@@ -28,20 +28,20 @@
         <span class="font-weight-bold">{{ item.name }}</span>
       </template>
       <template #[`item.confirmed`]="{ item }">
-        <span class="font-weight-bold">{{ item.confirmed }}</span>
+        <span class="font-weight-bold">{{ formatNumber(item.confirmed) }}</span>
       </template>
       <template #[`item.newConfirmed`]="{ item }">
         <span
           class="font-weight-bold"
           :style="{ color: theme.default.warning }"
-          >{{ item.newConfirmed }}</span
+          >{{ formatNumber(item.newConfirmed) }}</span
         >
       </template>
       <template #[`item.deaths`]="{ item }">
         <span
           class="font-weight-bold"
           :style="{ color: theme.default.danger }"
-          >{{ item.deaths }}</span
+          >{{ formatNumber(item.deaths) }}</span
         >
       </template>
       <template #top>
@@ -62,6 +62,7 @@
 import Vue from 'vue';
 import Loading from '@/components/common/Loading.vue';
 import { theme } from '~/themes';
+import { formatNumber } from '~/utils/formatNumber';
 
 export default Vue.extend({
   components: {
@@ -90,6 +91,11 @@ export default Vue.extend({
     },
     provinceCasesState() {
       return this.$store.state.home.provinceCases;
+    },
+  },
+  methods: {
+    formatNumber(number: number) {
+      return formatNumber(number);
     },
   },
 });
