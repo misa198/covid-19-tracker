@@ -26,7 +26,7 @@
         />
         <div
           class="text-subtitle-2 text-center pb-2 pt-1"
-          v-text="`Cập nhật: ${lastedUpdate}`"
+          v-text="`Cập nhật: ${lastUpdated}`"
         />
       </v-sheet>
       <div
@@ -106,8 +106,8 @@ export default Vue.extend({
     statistic() {
       return this.$store.state.home.statistic;
     },
-    lastedUpdate() {
-      return this.$store.state.home.statistic.lastedUpdate;
+    lastUpdated() {
+      return this.$store.state.home.statistic.lastUpdated;
     },
     summary() {
       const statisticData = this.$store.state.home.statistic.data;

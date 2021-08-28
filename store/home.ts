@@ -49,7 +49,7 @@ export const mutations = {
   ) {
     Vue.set(state.statistic, 'loading', false);
     Vue.set(state.statistic, 'data', payload.data);
-    Vue.set(state.statistic, 'lastedUpdate', payload.meta.lastedUpdate);
+    Vue.set(state.statistic, 'lastUpdated', payload.meta.lastUpdated);
   },
   fetchVietnamStatisticDataRejected(state: HomeState) {
     Vue.set(state.statistic, 'loading', false);

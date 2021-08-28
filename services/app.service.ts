@@ -5,7 +5,7 @@ import { axiosAppClient } from './axiosClient';
 export interface AppVietnamStatisticResponse {
   data: VietnamStatistic;
   meta: {
-    lastedUpdate: string;
+    lastUpdated: string;
   };
 }
 

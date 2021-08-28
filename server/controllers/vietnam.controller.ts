@@ -7,7 +7,7 @@ const getVietnamStatistic = async (_req: Request, res: Response) => {
     return res.send({
       data: result[0],
       meta: {
-        lastedUpdate: result[1],
+        lastUpdated: result[1],
       },
     });
   } catch (e) {
