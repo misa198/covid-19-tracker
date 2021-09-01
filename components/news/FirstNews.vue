@@ -15,13 +15,22 @@
           :style="{
             width: '100%',
             paddingBottom: '60%',
-            backgroundImage: `url(${firstNews.picture})`,
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
             borderRadius: '4px',
+            overflow: 'hidden',
+            position: 'relative',
           }"
-        ></div>
+        >
+          <img
+            :src="firstNews.picture"
+            :alt="firstNews.title"
+            :style="{
+              width: '100%',
+              height: '100%',
+              position: 'absolute',
+            }"
+            :onerror="defaultNewsCoverImage"
+          />
+        </div>
       </v-row>
       <v-row class="px-1">
         <v-col cols="12" class="pa-0 mt-3">
@@ -46,7 +55,14 @@
 import Vue from 'vue';
 import { theme } from '@/themes';
 import { formatTime } from '~/utils/formatTime';
+import { defaultNewsCoverImage } from '@/constants/config';
+
 export default Vue.extend({
+  data() {
+    return {
+      defaultNewsCoverImage,
+    };
+  },
   computed: {
     darkMode() {
       return this.$store.state.common.darkMode;

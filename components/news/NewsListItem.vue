@@ -14,12 +14,13 @@
           >
             <img
               :src="news.picture"
-              alt=""
+              :alt="news.title"
               :style="{
                 width: '100%',
                 height: '100%',
                 position: 'absolute',
               }"
+              :onerror="defaultNewsCoverImage"
             />
           </div>
         </v-col>
@@ -53,12 +54,19 @@
 <script lang="ts">
 import Vue from 'vue';
 import { formatTime } from '@/utils/formatTime';
+import { defaultNewsCoverImage } from '@/constants/config';
+
 export default Vue.extend({
   props: {
     news: {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      defaultNewsCoverImage,
+    };
   },
   methods: {
     formatTime(time: Date) {

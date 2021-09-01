@@ -12,3 +12,5 @@ export const covidProvincesByDayVnExpress =
 export const zingVaccineApiUrl =
   'https://api.zingnews.vn/public/v2/corona/getChart?type=vaccination';
 export const appApiUrl = '/api';
+export const defaultNewsCoverImage =
+  'https://res.cloudinary.com/dumfvnj9f/image/upload/v1629902332/covid-19-tracker/covid-19-tracker_bdrjyv.png';
