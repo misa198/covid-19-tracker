@@ -1,14 +1,16 @@
 import axios from 'axios';
 import {
+  covidProvincesByDayVnExpress,
   covidProvinceVnExpressApiUrl,
   covidVnExpressApiUrl,
   covidVnExpressSiteUrl,
 } from '../../constants/config';
+import { expressUpdateDateTime } from '../../constants/regex';
 import {
+  formatProvinceByDayVnExpressData,
   formatVnExpressData,
   formatVnExpressProvinceData,
 } from '../utils/formatApiData';
-import { expressUpdateDateTime } from '../../constants/regex';
 
 const getVietnamStatisticVnExpress = async () => {
   const [bodyRes, siteDataRes] = await Promise.all([
@@ -30,4 +32,14 @@ const getProvinceStatisticVnExpress = async () => {
   return parsedData;
 };
 
-export default { getVietnamStatisticVnExpress, getProvinceStatisticVnExpress };
+const getProvinceCaseByDayVnExpress = async () => {
+  const body = await axios.get(covidProvincesByDayVnExpress);
+  const parsedData = formatProvinceByDayVnExpressData(body.data as string);
+  return parsedData;
+};
+
+export default {
+  getVietnamStatisticVnExpress,
+  getProvinceStatisticVnExpress,
+  getProvinceCaseByDayVnExpress,
+};

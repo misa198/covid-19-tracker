@@ -25,4 +25,18 @@ const getProvincesStatistic = async (_req: Request, res: Response) => {
   }
 };
 
-export default { getVietnamStatistic, getProvincesStatistic };
+const getProvinceByDayStatistic = async (_req: Request, res: Response) => {
+  try {
+    const provinceByDay =
+      await vnExpressService.getProvinceCaseByDayVnExpress();
+    return res.send({ data: provinceByDay });
+  } catch (e) {
+    return res.status(500).send({ error: 'error' });
+  }
+};
+
+export default {
+  getVietnamStatistic,
+  getProvincesStatistic,
+  getProvinceByDayStatistic,
+};

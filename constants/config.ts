@@ -7,6 +7,8 @@ export const covidProvinceVnExpressApiUrl =
   'https://vnexpress.net/microservice/sheet/type/covid19_2021_by_map';
 export const covidVnExpressSiteUrl =
   'https://vnexpress.net/covid-19/covid-19-viet-nam';
+export const covidProvincesByDayVnExpress =
+  'https://vnexpress.net/microservice/sheet/type/covid19_2021_by_location';
 export const zingVaccineApiUrl =
   'https://api.zingnews.vn/public/v2/corona/getChart?type=vaccination';
 export const appApiUrl = '/api';

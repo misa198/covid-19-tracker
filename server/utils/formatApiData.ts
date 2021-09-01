@@ -1,5 +1,7 @@
-import { VietnamStatistic } from '../../models/VietnamStatistic';
+import slugify from 'slugify';
 import { ProvinceStatistic } from '../../models/ProvinceStatistic';
+import { VietnamStatistic } from '../../models/VietnamStatistic';
+import { ProvinceByDay } from '../../models/ProvinceByDay';
 
 export const formatDate = (data: string) => {
   const splitData = data.split('/');
@@ -83,5 +85,51 @@ export const formatVnExpressProvinceData = (data: string) => {
     }
   });
 
+  return result;
+};
+
+export const formatProvinceByDayVnExpressData = (data: string) => {
+  const lines = data.split('\n');
+  const result: ProvinceByDay[] = [];
+  lines.forEach((line, index) => {
+    if (index === 0) {
+      const provinces = line.split(',');
+      provinces.forEach((province, i) => {
+        if (i >= 1 && i <= 62) {
+          const provinceName = province.split('"')[1];
+          result.push({
+            name: provinceName,
+            slug: slugify(provinceName.toLowerCase()),
+            data: [],
+          });
+        }
+      });
+    }
+    if (index >= 2) {
+      const cases = line.split(',');
+      const rawDate = cases[0].split('"')[1];
+      if (rawDate) {
+        const rawDateSplit = rawDate.split('/');
+        const date = `${
+          parseInt(rawDateSplit[0], 10) < 10
+            ? '0' + parseInt(rawDateSplit[0], 10)
+            : parseInt(rawDateSplit[0], 10)
+        }-${
+          parseInt(rawDateSplit[1], 10) < 10
+            ? '0' + parseInt(rawDateSplit[1], 10)
+            : parseInt(rawDateSplit[1], 10)
+        }`;
+        result.forEach((item, i) => {
+          if (i >= 1 && i <= 62) {
+            item.data.push({
+              date,
+              confirmed: parseInt(cases[i].split('"')[1] || '0', 10),
+            });
+          }
+        });
+      }
+    }
+  });
+  result.sort((a, b) => a.name.localeCompare(b.name));
   return result;
 };

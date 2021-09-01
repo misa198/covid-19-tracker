@@ -24,6 +24,7 @@
     "helmet": "^4.6.0",
     "heroku-awake": "^1.0.10",
     "nuxt": "^2.15.7",
+    "slugify": "^1.6.0",
     "vue-apexcharts": "^1.6.2",
     "vue-gtag": "^1.16.1",
     "vuetify": "^2.5.5"
