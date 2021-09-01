@@ -8,7 +8,7 @@
       darkMode ? theme.dark.headerBackground : theme.light.headerBackground
     "
   >
-    <Loading v-if="statistic.loading" />
+    <Loading v-if="provinceCasesByDayState.loading" />
     <div class="text-h6 font-weight-bold text-center">
       {{ label }}
     </div>
@@ -108,8 +108,8 @@ export default Vue.extend({
     darkMode() {
       return this.$store.state.common.darkMode;
     },
-    statistic() {
-      return this.$store.state.home.statistic;
+    provinceCasesByDayState() {
+      return this.$store.state.home.provinceCasesByDay;
     },
     provinces() {
       const provinceCasesByDay: ProvinceByDay[] =
