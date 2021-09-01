@@ -32,6 +32,9 @@
         </v-col>
         <v-col cols="12" class="pa-0 mt-2">
           <div class="text-subtitle-2">
+            <span> {{ formatTime(new Date(firstNews.publishedDate)) }}</span>
+          </div>
+          <div class="text-subtitle-2 mt-2">
             Theo <i> {{ firstNews.siteName }}</i>
           </div>
         </v-col>
@@ -42,6 +45,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { theme } from '@/themes';
+import { formatTime } from '~/utils/formatTime';
 export default Vue.extend({
   computed: {
     darkMode() {
@@ -52,6 +56,11 @@ export default Vue.extend({
     },
     firstNews() {
       return this.$store.state.news.data[0];
+    },
+  },
+  methods: {
+    formatTime(time: Date) {
+      return formatTime(time);
     },
   },
 });

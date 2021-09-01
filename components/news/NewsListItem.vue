@@ -7,13 +7,21 @@
             :style="{
               width: '100%',
               paddingBottom: '60%',
-              backgroundImage: `url(${news.picture})`,
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
               borderRadius: '4px',
+              overflow: 'hidden',
+              position: 'relative',
             }"
-          ></div>
+          >
+            <img
+              :src="news.picture"
+              alt=""
+              :style="{
+                width: '100%',
+                height: '100%',
+                position: 'absolute',
+              }"
+            />
+          </div>
         </v-col>
         <v-col xl="8" lg="8" mid="8" sm="12" xs="12" cols="12">
           <div class="text-h6 font-weight-bold mb-2">
@@ -31,7 +39,10 @@
           >
             {{ news.content }}...
           </div>
-          <div class="text-subtitle-2 font-weight-bold mt-4">
+          <div class="text-subtitle-2 font-weight-bold mt-2">
+            <span> {{ formatTime(new Date(news.publishedDate)) }}</span>
+          </div>
+          <div class="text-subtitle-2 font-weight-bold mt-2">
             Theo <i> {{ news.siteName }}</i>
           </div>
         </v-col>
@@ -41,11 +52,17 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
+import { formatTime } from '@/utils/formatTime';
 export default Vue.extend({
   props: {
     news: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    formatTime(time: Date) {
+      return formatTime(time);
     },
   },
 });
