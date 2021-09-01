@@ -1,3 +1,4 @@
+import { ProvinceByDay } from '~/models/ProvinceByDay';
 import { ProvinceStatistic } from '~/models/ProvinceStatistic';
 import { VietnamStatistic } from '~/models/VietnamStatistic';
 import { axiosAppClient } from './axiosClient';
@@ -48,4 +49,13 @@ export interface AppVietnamVaccineStatisticResponse {
 export const fetchAppVietNamVaccineStatistic =
   async (): Promise<AppVietnamVaccineStatisticResponse> => {
     return await axiosAppClient.get('/vaccine');
+  };
+
+export interface AppProvinceCaseByDayResponse {
+  data: ProvinceByDay[];
+}
+
+export const fetchAppProvinceByDay =
+  async (): Promise<AppProvinceCaseByDayResponse> => {
+    return await axiosAppClient.get('/vietnam/provinces/day');
   };

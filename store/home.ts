@@ -1,11 +1,13 @@
 import {
   AppProvinceStatisticResponse,
   AppVietnamStatisticResponse,
+  fetchAppProvinceByDay,
   fetchAppProvinceStatistic,
   fetchAppVietNamStatistic,
 } from '@/services/app.service';
 import Vue from 'vue';
 import { ActionContext } from 'vuex/types';
+import { ProvinceByDay } from '~/models/ProvinceByDay';
 import { ProvinceStatistic } from '~/models/ProvinceStatistic';
 import { VietnamStatistic } from '~/models/VietnamStatistic';
 import { RootState } from '.';
@@ -13,6 +15,11 @@ import { RootState } from '.';
 export interface HomeState {
   provinceCases: {
     data: ProvinceStatistic[];
+    loading: boolean;
+    error: boolean;
+  };
+  provinceCasesByDay: {
+    data: ProvinceByDay[];
     loading: boolean;
     error: boolean;
   };
@@ -26,6 +33,11 @@ export interface HomeState {
 
 export const state: () => HomeState = () => ({
   provinceCases: {
+    data: [],
+    loading: false,
+    error: false,
+  },
+  provinceCasesByDay: {
     data: [],
     loading: false,
     error: false,
@@ -56,6 +68,22 @@ export const mutations = {
     Vue.set(state.statistic, 'error', true);
   },
 
+  fetchProvincesCasesByDayStatisticDataPending(state: HomeState) {
+    Vue.set(state.provinceCasesByDay, 'loading', true);
+    Vue.set(state.provinceCasesByDay, 'error', false);
+  },
+  fetchProvincesCasesByDayStatisticDataFulfilled(
+    state: HomeState,
+    payload: AppProvinceStatisticResponse
+  ) {
+    Vue.set(state.provinceCasesByDay, 'loading', false);
+    Vue.set(state.provinceCasesByDay, 'data', payload.data);
+  },
+  fetchProvincesCasesByDayStatisticDataRejected(state: HomeState) {
+    Vue.set(state.provinceCasesByDay, 'loading', false);
+    Vue.set(state.provinceCasesByDay, 'error', true);
+  },
+
   fetchProvincesStatisticDataPending(state: HomeState) {
     Vue.set(state.provinceCases, 'loading', true);
     Vue.set(state.provinceCases, 'error', false);
@@ -83,6 +111,18 @@ export const actions = {
       commit('fetchVietnamStatisticDataFulfilled', res);
     } catch (e) {
       commit('fetchVietnamStatisticDataRejected');
+    }
+  },
+
+  async fetchProvinceCasesByDayStatisticCasesData({
+    commit,
+  }: ActionContext<HomeState, RootState>) {
+    commit('fetchProvincesCasesByDayStatisticDataPending');
+    try {
+      const res = await fetchAppProvinceByDay();
+      commit('fetchProvincesCasesByDayStatisticDataFulfilled', res);
+    } catch (e) {
+      commit('fetchProvincesCasesByDayStatisticDataRejected');
     }
   },
 

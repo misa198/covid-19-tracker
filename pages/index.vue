@@ -40,6 +40,7 @@ export default Vue.extend({
   created() {
     this.$store.dispatch('home/fetchProvinceStatisticCasesData');
     this.$store.dispatch('home/fetchVietnamStatisticCasesData');
+    this.$store.dispatch('home/fetchProvinceCasesByDayStatisticCasesData');
   },
 });
 </script>

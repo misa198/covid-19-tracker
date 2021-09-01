@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { appApiUrl, kompaApiUrl } from '@/constants/config';
 
+// Request to Kompa api
 export const axiosKompaClient = axios.create({
   baseURL: kompaApiUrl,
   headers: {
@@ -32,6 +33,7 @@ axiosKompaClient.interceptors.response.use(
   }
 );
 
+// Request to app server api
 export const axiosAppClient = axios.create({
   baseURL: appApiUrl,
 });
