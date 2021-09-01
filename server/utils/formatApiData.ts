@@ -120,12 +120,10 @@ export const formatProvinceByDayVnExpressData = (data: string) => {
             : parseInt(rawDateSplit[1], 10)
         }`;
         result.forEach((item, i) => {
-          if (i >= 1 && i <= 62) {
-            item.data.push({
-              date,
-              confirmed: parseInt(cases[i].split('"')[1] || '0', 10),
-            });
-          }
+          item.data.push({
+            date,
+            confirmed: parseInt(cases[i + 1].split('"')[1] || '0', 10),
+          });
         });
       }
     }
