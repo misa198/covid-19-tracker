@@ -28,7 +28,7 @@
       <template #[`item.firstInjection`]="{ item }">
         <span
           class="font-weight-bold"
-          :style="{ color: theme.default.lightGreen }"
+          :style="{ color: theme.default.lightGreenText }"
           >{{ formatNumber(item.firstInjection) }}</span
         >
       </template>
@@ -42,7 +42,7 @@
       <template #[`item.firstRatio`]="{ item }">
         <span
           class="font-weight-bold"
-          :style="{ color: theme.default.lightGreen }"
+          :style="{ color: theme.default.lightGreenText }"
           >{{ item.firstRatio.toFixed(2) }}%</span
         >
       </template>

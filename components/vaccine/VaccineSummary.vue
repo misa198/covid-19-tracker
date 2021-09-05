@@ -52,7 +52,7 @@
     <v-row class="px-8 mt-7">
       <div
         class="mb-2 d-flex"
-        :style="{ width: '100%', color: theme.default.lightGreen }"
+        :style="{ width: '100%', color: theme.default.lightGreenText }"
       >
         <span class="text-subtitle-2">Dân số đã tiêm 1 mũi</span>
         <v-spacer />
