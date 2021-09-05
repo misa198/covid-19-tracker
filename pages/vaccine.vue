@@ -34,6 +34,7 @@ export default Vue.extend({
   },
   created() {
     this.$store.dispatch('vaccine/fetchAppVietNamVaccineStatistic');
+    this.$store.dispatch('vaccine/fetchProvincesVaccineStatistic');
   },
 });
 </script>
