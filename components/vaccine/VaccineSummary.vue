@@ -50,25 +50,26 @@
       </v-col>
     </v-row>
     <v-row class="px-8 mt-7">
-      <v-row class="mb-2 px-4">
+      <div class="mb-2 d-flex" :style="{ width: '100%', color: '#81c784' }">
+        <span class="text-subtitle-2">Dân số đã tiêm 1 mũi</span>
+        <v-spacer />
+        <span class="text-subtitle-2"
+          >{{ firstRatio ? firstRatio.toFixed(2) : 0 }}%</span
+        >
+      </div>
+      <div class="mb-4 d-flex" :style="{ width: '100%' }">
         <span class="text-subtitle-2" :style="{ color: theme.default.success }"
           >Dân số đã tiêm 2 mũi</span
         >
         <v-spacer />
         <span class="text-subtitle-2" :style="{ color: theme.default.success }"
-          >{{
-            statistic.data.secondRatio
-              ? statistic.data.secondRatio.toFixed(2)
-              : 0
-          }}%</span
+          >{{ secondRatio ? secondRatio.toFixed(2) : 0 }}%</span
         >
-      </v-row>
-      <v-progress-linear
-        :value="statistic.data.secondRatio"
-        :color="theme.default.success"
-        height="14"
-        rounded
-      ></v-progress-linear>
+      </div>
+      <VaccineStatisticBar
+        :first-ratio="firstRatio"
+        :second-ratio="secondRatio"
+      />
       <div class="text-subtitle-2 mt-4 px-1">Mục tiêu: 70% dân số</div>
     </v-row>
   </v-sheet>
@@ -77,12 +78,14 @@
 <script lang="ts">
 import Vue from 'vue';
 import Loading from '@/components/common/Loading.vue';
+import VaccineStatisticBar from './VacinceStatisticBar.vue';
 import { theme } from '@/themes';
 import { formatNumber } from '@/utils/formatNumber';
 
 export default Vue.extend({
   components: {
     Loading,
+    VaccineStatisticBar,
   },
   computed: {
     darkMode() {
@@ -93,6 +96,12 @@ export default Vue.extend({
     },
     statistic() {
       return this.$store.state.vaccine.statistic;
+    },
+    secondRatio() {
+      return Math.abs(this.$store.state.vaccine.statistic.data.secondRatio);
+    },
+    firstRatio() {
+      return Math.abs(this.$store.state.vaccine.statistic.data.firstRatio);
     },
   },
   methods: {
