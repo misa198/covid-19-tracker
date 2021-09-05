@@ -18,7 +18,7 @@
       <v-col
         v-for="(range, index) in ranges"
         :key="index"
-        md="6"
+        md="3"
         cols="6"
         class="d-flex justify-center"
       >
@@ -46,6 +46,8 @@ import { formatNumber, formatNumberWithComma } from '~/utils/formatNumber';
 
 const ranges: Range[] = [
   { name: '1 tháng', value: 30 },
+  { name: '2 tháng', value: 60 },
+  { name: '3 tháng', value: 90 },
   { name: 'Toàn bộ', value: 10000 },
 ];
 
