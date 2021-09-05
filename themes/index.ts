@@ -11,6 +11,7 @@ export const theme = {
     infoSecondary: '#CFD8DC',
     indigo: '#3F51B5',
     lime: '#CDDC39',
+    lightGreen: 'rgb(165, 214, 167)',
   },
   light: {
     text: '#000',

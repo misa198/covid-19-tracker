@@ -4,7 +4,10 @@
       <template #activator="{ on, attrs }">
         <div
           class="vaccine-statistic-bar__first-ratio"
-          :style="{ background: '#a5d6a7', width: `${firstRatio}%` }"
+          :style="{
+            background: theme.default.lightGreen,
+            width: `${firstRatio}%`,
+          }"
           v-bind="attrs"
           v-on="on"
         />
