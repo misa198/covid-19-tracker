@@ -55,7 +55,7 @@ export default Vue.extend({
           dataLabels: {
             enabled: false,
           },
-          colors: [theme.default.lightGreen, theme.default.success],
+          colors: [theme.default.success, theme.default.lightGreen],
           chart: {
             id: 'chart',
             zoom: false,

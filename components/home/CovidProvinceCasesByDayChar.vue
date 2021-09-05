@@ -176,10 +176,7 @@ export default Vue.extend({
           },
         },
         stroke: {
-          show: true,
-          curve: 'smooth',
-          lineCap: 'butt',
-          width: 2,
+          show: false,
         },
       };
     },

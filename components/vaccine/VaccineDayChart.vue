@@ -135,7 +135,7 @@ export default Vue.extend({
             show: true,
             curve: 'smooth',
             lineCap: 'butt',
-            width: 2,
+            width: [0, 0, 2],
           },
         },
         series: [
