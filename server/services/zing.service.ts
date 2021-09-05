@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { zingVaccineApiUrl } from '../../constants/config';
+import {
+  zingVaccineApiUrl,
+  zingVaccineProvincesApiUrl,
+} from '../../constants/config';
 
 interface ZingVaccineSummary {
   data: {
@@ -72,4 +75,49 @@ const getVaccineStatistic = async () => {
   };
 };
 
-export default { getVaccineStatistic };
+interface ZingVaccineProvince {
+  totalVaccinationLocation: number;
+  totalInjected: number;
+  population: number;
+  totalOnceInjected: number;
+  totalTwiceInjected: number;
+  lastOnceInjected: number;
+  lastTwiceInjected: number;
+  currentTeamInjectInPractice: number;
+  totalVaccineAllocated: number;
+  popOverEighteen: number;
+  totalVaccineAllocatedReality: number;
+  provinceCode: string;
+  provinceName: string;
+  vaccineInjectionDailies: [
+    {
+      reportedDate: string;
+      totalInjected: number;
+    }
+  ];
+}
+
+interface ZingVaccineProvinceResponse {
+  data: ZingVaccineProvince[];
+}
+
+interface ResponseDataItem {
+  name: string;
+  firstInjection: number;
+  secondInjection: number;
+  population: number;
+}
+
+const getVaccineProvincesStatistic = async () => {
+  const data = (await axios.get(zingVaccineProvincesApiUrl))
+    .data as ZingVaccineProvinceResponse;
+  const res: ResponseDataItem[] = data.data.map((province) => ({
+    name: province.provinceName,
+    firstInjection: province.totalOnceInjected,
+    secondInjection: province.totalTwiceInjected,
+    population: province.population,
+  }));
+  return res;
+};
+
+export default { getVaccineStatistic, getVaccineProvincesStatistic };

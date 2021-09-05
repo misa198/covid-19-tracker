@@ -10,4 +10,13 @@ const getVaccineStatistic = async (_req: Request, res: Response) => {
   }
 };
 
-export default { getVaccineStatistic };
+const getVaccineProvincesStatistic = async (_req: Request, res: Response) => {
+  try {
+    const result = await zingService.getVaccineProvincesStatistic();
+    return res.send({ data: result });
+  } catch (e) {
+    return res.status(500).send({ error: 'error' });
+  }
+};
+
+export default { getVaccineStatistic, getVaccineProvincesStatistic };
