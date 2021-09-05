@@ -139,7 +139,11 @@ export default Vue.extend({
           },
         },
         series: [
-          { name: 'Tiêm 1 mũi', data: first, type: 'bar' },
+          {
+            name: 'Tiêm 1 mũi',
+            data: first,
+            type: 'bar',
+          },
           { name: 'Tiêm 2 mũi', data: second, type: 'bar' },
           {
             name: 'Trung bình 7 ngày',

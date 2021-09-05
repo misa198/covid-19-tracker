@@ -11,7 +11,7 @@
     <Loading v-if="statistic.loading" />
     <div
       class="text-h6 font-weight-bold text-center"
-      v-text="'Số người đã tiêm'"
+      v-text="'Số người đã được tiêm'"
     />
     <apexchart width="100%" :options="data.options" :series="data.series" />
   </v-sheet>
@@ -55,7 +55,7 @@ export default Vue.extend({
           dataLabels: {
             enabled: false,
           },
-          colors: [theme.default.success, theme.default.indigo],
+          colors: [theme.default.lightGreen, theme.default.success],
           chart: {
             id: 'chart',
             zoom: false,
@@ -90,7 +90,7 @@ export default Vue.extend({
             show: true,
             curve: 'smooth',
             lineCap: 'butt',
-            width: 1,
+            width: 0,
           },
         },
         series: [
