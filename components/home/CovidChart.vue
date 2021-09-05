@@ -60,11 +60,7 @@ import Loading from '@/components/common/Loading.vue';
 import { theme } from '@/themes';
 import { VietnamStatistic } from '~/models/VietnamStatistic';
 import { formatNumber, formatNumberWithComma } from '~/utils/formatNumber';
-
-interface Range {
-  name: string;
-  value: number;
-}
+import { Range } from '@/models/Range';
 
 const ranges: Range[] = [
   { name: '1 tháng', value: 30 },

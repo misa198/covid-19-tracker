@@ -70,11 +70,7 @@ import { theme } from '@/themes';
 import Vue from 'vue';
 import { ProvinceByDay } from '~/models/ProvinceByDay';
 import { formatNumber, formatNumberWithComma } from '~/utils/formatNumber';
-
-interface Range {
-  name: string;
-  value: number;
-}
+import { Range } from '@/models/Range';
 
 const ranges: Range[] = [
   { name: '1 tháng', value: 30 },
