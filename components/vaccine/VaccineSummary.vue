@@ -70,7 +70,9 @@
         :first-ratio="firstRatio"
         :second-ratio="secondRatio"
       />
-      <div class="text-subtitle-2 mt-4 px-1">Mục tiêu: 70% dân số</div>
+      <div class="text-subtitle-2 mt-4 px-1">
+        Mục tiêu: 70% dân số được tiêm 2 mũi
+      </div>
     </v-row>
   </v-sheet>
 </template>
