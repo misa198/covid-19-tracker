@@ -14,19 +14,50 @@
       v-text="'Mũi tiêm theo ngày'"
     />
     <apexchart width="100%" :options="data.options" :series="data.series" />
+    <v-row class="mb-2 px-4">
+      <v-col
+        v-for="(range, index) in ranges"
+        :key="index"
+        md="6"
+        cols="6"
+        class="d-flex justify-center"
+      >
+        <v-btn
+          width="100%"
+          dark
+          light
+          :outlined="selectedRange.value !== range.value"
+          :color="theme.default.danger"
+          @click="selectRange(index)"
+          >{{ range.name }}</v-btn
+        >
+      </v-col>
+    </v-row>
   </v-sheet>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
 import Loading from '@/components/common/Loading.vue';
+import { Range } from '@/models/Range';
 import { AppVietnamVaccineStatistic } from '@/services/app.service';
 import { theme } from '@/themes';
+import Vue from 'vue';
 import { formatNumber, formatNumberWithComma } from '~/utils/formatNumber';
+
+const ranges: Range[] = [
+  { name: '1 tháng', value: 30 },
+  { name: 'Toàn bộ', value: 10000 },
+];
 
 export default Vue.extend({
   components: {
     Loading,
+  },
+  data() {
+    return {
+      ranges,
+      selectedRange: ranges[0],
+    };
   },
   computed: {
     statistic() {
@@ -35,7 +66,12 @@ export default Vue.extend({
     data() {
       const statisticData = this.$store.state.vaccine.statistic
         .data as AppVietnamVaccineStatistic;
-      const selected = [...statisticData.dayInjection];
+      const selected = [...statisticData.dayInjection].slice(
+        Math.max(
+          statisticData.dayInjection.length - this.$data.selectedRange.value,
+          1
+        )
+      );
       const dates: string[] = [];
       const first: number[] = [];
       const second: number[] = [];
@@ -59,12 +95,13 @@ export default Vue.extend({
           },
           colors: [
             theme.default.success,
-            theme.default.indigo,
+            theme.default.lightGreen,
             theme.default.lime,
           ],
           chart: {
             id: 'chart',
             zoom: false,
+            stacked: true,
             toolbar: {
               show: false,
             },
@@ -100,8 +137,8 @@ export default Vue.extend({
           },
         },
         series: [
-          { name: 'Tiêm 1 mũi', data: first, type: 'area' },
-          { name: 'Tiêm 2 mũi', data: second, type: 'area' },
+          { name: 'Tiêm 1 mũi', data: first, type: 'bar' },
+          { name: 'Tiêm 2 mũi', data: second, type: 'bar' },
           {
             name: 'Trung bình 7 ngày',
             data: average,
@@ -115,6 +152,11 @@ export default Vue.extend({
     },
     theme() {
       return theme;
+    },
+  },
+  methods: {
+    selectRange(index: number) {
+      this.$data.selectedRange = ranges[index];
     },
   },
 });
