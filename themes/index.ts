@@ -12,6 +12,7 @@ export const theme = {
     indigo: '#3F51B5',
     lime: '#CDDC39',
     lightGreen: 'rgb(165, 214, 167)',
+    lightGreenText: '#81b983',
   },
   light: {
     text: '#000',

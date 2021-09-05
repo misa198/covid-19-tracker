@@ -8,6 +8,7 @@
           <VaccineChartWrapper />
         </client-only>
       </div>
+      <VaccineProvinceTable />
     </HomeContainer>
   </v-container>
 </template>
@@ -17,6 +18,7 @@ import Vue from 'vue';
 import HomeContainer from '@/components/common/HomeContainer.vue';
 import VaccineSumary from '@/components/vaccine/VaccineSummary.vue';
 import VaccineChartWrapper from '@/components/vaccine/VaccineChartWrapper.vue';
+import VaccineProvinceTable from '@/components/vaccine/VaccineProvinceTable.vue';
 import Seo from '@/components/common/Seo.vue';
 
 export default Vue.extend({
@@ -24,6 +26,7 @@ export default Vue.extend({
     HomeContainer,
     VaccineSumary,
     VaccineChartWrapper,
+    VaccineProvinceTable,
     Seo,
   },
   data() {
