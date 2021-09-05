@@ -135,17 +135,18 @@ export default Vue.extend({
         (province: ProvinceByDay) =>
           province.slug === this.$data.selectedProvince.slug
       );
-      statistic?.data.forEach((item) => {
-        dates.push(item.date);
-        confirmed.push(item.confirmed);
-      });
+      if (statistic) {
+        const selectedStatistic = [...statistic!.data].splice(
+          Math.max(statistic!.data.length - this.$data.selectedRange.value, 1)
+        );
+        selectedStatistic.forEach((item) => {
+          dates.push(item.date);
+          confirmed.push(item.confirmed);
+        });
+      }
       return {
-        dates: dates.slice(
-          Math.max(dates.length - this.$data.selectedRange.value, 1)
-        ),
-        confirmed: confirmed.slice(
-          Math.max(confirmed.length - this.$data.selectedRange.value, 1)
-        ),
+        dates,
+        confirmed,
       };
     },
     options() {

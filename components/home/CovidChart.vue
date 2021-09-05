@@ -99,29 +99,24 @@ export default Vue.extend({
     },
     data() {
       const statistic = this.$store.state.home.statistic.data;
+      const selectedRange = [...statistic].slice(
+        Math.max(statistic.length - this.$data.selectedRange.value, 1)
+      );
       const dates: string[] = [];
       const confirmed: number[] = [];
       const recovered: number[] = [];
       const deaths: number[] = [];
-      statistic.forEach((item: VietnamStatistic) => {
+      selectedRange.forEach((item: VietnamStatistic) => {
         dates.push(item.date);
         confirmed.push(item.newConfirmed);
         recovered.push(item.newRecovered);
         deaths.push(item.newDeaths);
       });
       return {
-        dates: dates.slice(
-          Math.max(dates.length - this.$data.selectedRange.value, 1)
-        ),
-        confirmed: confirmed.slice(
-          Math.max(confirmed.length - this.$data.selectedRange.value, 1)
-        ),
-        recovered: recovered.slice(
-          Math.max(recovered.length - this.$data.selectedRange.value, 1)
-        ),
-        deaths: deaths.slice(
-          Math.max(deaths.length - this.$data.selectedRange.value, 1)
-        ),
+        dates,
+        confirmed,
+        recovered,
+        deaths,
       };
     },
     options() {
