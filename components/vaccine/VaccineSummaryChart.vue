@@ -56,8 +56,17 @@ export default Vue.extend({
             enabled: false,
           },
           colors: [theme.default.success, theme.default.lightGreen],
+          fill: {
+            type: 'gradient',
+            gradient: {
+              opacityFrom: 0.9,
+              opacityTo: 1,
+            },
+          },
           chart: {
             id: 'chart',
+            stacked: true,
+            type: 'area',
             zoom: false,
             toolbar: {
               show: false,
@@ -94,8 +103,8 @@ export default Vue.extend({
           },
         },
         series: [
-          { name: 'Tiêm 1 mũi', data: first, type: 'area' },
-          { name: 'Tiêm 2 mũi', data: second, type: 'area' },
+          { name: 'Tiêm 2 mũi', data: second },
+          { name: 'Tiêm 1 mũi', data: first },
         ],
       };
     },
